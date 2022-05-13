@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_bg"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/dimen_8dp">
+
+            <include
+                android:id="@+id/custom_action_bar"
+                layout="@layout/custom_action_bar_layout"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_horizontal_025"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.15" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_vertical_003"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.03" />
+
+            <!--        app:layout_constraintBottom_toTopOf="@id/guideline_horizontal_025"-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/videoCard"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginVertical="@dimen/dimen_4dp"
+                android:visibility="gone"
+                app:cardCornerRadius="@dimen/dimen_16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/custom_action_bar" />
+
+            <com.kapilguru.student.customUI.ImageTextHorizontal
+                android:id="@+id/text_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="@id/guideline_vertical_003"
+                app:layout_constraintTop_toBottomOf="@id/videoCard"
+                app:title="@string/free_lectures_text1" />
+
+            <com.kapilguru.student.customUI.ImageTextHorizontal
+                android:id="@+id/text_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/guideline_vertical_003"
+                app:layout_constraintTop_toBottomOf="@id/text_1"
+                app:title="@string/free_lectures_text2" />
+
+            <com.kapilguru.student.customUI.ImageTextHorizontal
+                android:id="@+id/text_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/guideline_vertical_003"
+                app:layout_constraintTop_toBottomOf="@id/text_2"
+                app:title="@string/free_lectures_text3" />
+
+            <com.kapilguru.student.customUI.ImageTextHorizontal
+                android:id="@+id/text_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/guideline_vertical_003"
+                app:layout_constraintTop_toBottomOf="@id/text_3"
+                app:title="@string/free_lectures_text4" />
+
+            <com.kapilguru.student.customUI.ImageTextHorizontal
+                android:id="@+id/text_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@id/guideline_vertical_003"
+                app:layout_constraintTop_toBottomOf="@id/text_4"
+                app:title="@string/free_lectures_text5" />
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/dateSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:entries="@array/dates_array"
+                android:theme="@style/CustomSpinnerTheme"
+                app:backgroundTint="@color/white"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@id/languageSpinner"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_5" />
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/languageSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:entries="@array/dates_array"
+                android:theme="@style/CustomSpinnerTheme"
+                app:backgroundTint="@color/white"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@id/priceSpinner"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@id/dateSpinner"
+                app:layout_constraintTop_toBottomOf="@+id/text_5" />
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/priceSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:entries="@array/dates_array"
+                android:theme="@style/CustomSpinnerTheme"
+                android:visibility="gone"
+                app:backgroundTint="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/search"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@id/languageSpinner"
+                app:layout_constraintTop_toBottomOf="@+id/text_5" />
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/search"
+                android:layout_width="20dp"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:backgroundTint="@color/white"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@+id/priceSpinner"
+                app:layout_constraintTop_toBottomOf="@+id/text_5" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/trendingAllWebinarsRecy"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/priceSpinner"
+                app:layout_constraintVertical_bias="0.0"
+                tools:listitem="@layout/trending_webinars_item_view" />
+
+            <include
+                android:id="@+id/noDataAvailable"
+                layout="@layout/layout_no_data_available"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                android:visibility="gone" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

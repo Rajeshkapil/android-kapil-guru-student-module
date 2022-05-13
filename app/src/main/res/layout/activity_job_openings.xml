@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_bg"
+        android:paddingHorizontal="@dimen/dimen_8dp">
+
+        <include
+            android:id="@+id/custom_action_bar"
+            layout="@layout/custom_action_bar_layout"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_horizontal_025"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_vertical_003"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.03" />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/videoCard"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            android:layout_marginVertical="@dimen/dimen_4dp"
+            app:cardCornerRadius="@dimen/dimen_16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/custom_action_bar" />
+
+        <com.kapilguru.student.customUI.ImageTextHorizontal
+            android:id="@+id/text_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_003"
+            app:layout_constraintTop_toBottomOf="@id/videoCard"
+            app:title="@string/job_text4" />
+
+        <com.kapilguru.student.customUI.ImageTextHorizontal
+            android:id="@+id/text_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_003"
+            app:layout_constraintTop_toBottomOf="@id/text_4"
+            app:title="@string/job_text5" />
+
+        <com.kapilguru.student.customUI.ImageTextHorizontal
+            android:id="@+id/text_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_003"
+            app:layout_constraintTop_toBottomOf="@id/text_5"
+            app:title="@string/job_text1" />
+
+        <com.kapilguru.student.customUI.ImageTextHorizontal
+            android:id="@+id/text_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_003"
+            app:layout_constraintTop_toBottomOf="@id/text_1"
+            app:title="@string/job_text2" />
+
+        <com.kapilguru.student.customUI.ImageTextHorizontal
+            android:id="@+id/text_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/guideline_vertical_003"
+            app:layout_constraintTop_toBottomOf="@id/text_2"
+            app:title="@string/job_text3" />
+
+
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/dateSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:entries="@array/dates_array"
+            android:theme="@style/CustomSpinnerTheme"
+            app:backgroundTint="@color/white"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintEnd_toStartOf="@id/languageSpinner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_3" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/languageSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:entries="@array/dates_array"
+            android:visibility="gone"
+            android:theme="@style/CustomSpinnerTheme"
+            app:backgroundTint="@color/white"
+            app:layout_constraintEnd_toStartOf="@id/priceSpinner"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@id/dateSpinner"
+            app:layout_constraintTop_toBottomOf="@+id/text_3" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/priceSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:entries="@array/dates_array"
+            android:theme="@style/CustomSpinnerTheme"
+            app:backgroundTint="@color/white"
+            android:visibility="gone"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintEnd_toStartOf="@+id/search"
+            app:layout_constraintStart_toEndOf="@id/languageSpinner"
+            app:layout_constraintTop_toBottomOf="@+id/text_3" />
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search"
+            android:layout_width="20dp"
+            android:layout_height="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_3"
+            android:backgroundTint="@color/white"
+            android:background="@color/white"
+            android:visibility="gone"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/priceSpinner"/>
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_job_openings_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/layout_job_openings_item"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/priceSpinner"
+            app:layout_constraintVertical_bias="0.1"/>
+
+            <include
+                android:id="@+id/noDataAvailable"
+                layout="@layout/layout_no_data_available"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                android:visibility="gone"
+                />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

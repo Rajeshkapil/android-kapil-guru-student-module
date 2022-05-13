@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vieModel"
+            type="com.kapilguru.student.referandearn.viewModel.ReferAndEarnViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/main_bg"
+        tools:context=".referandearn.ReferAndEarnActivity">
+
+        <include
+            android:id="@+id/actionbar"
+            layout="@layout/custom_action_bar_layout" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/referTypeSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/spinner_bg"
+            android:entries="@array/referral_type"
+            android:minHeight="25dp"
+            android:paddingTop="2dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"
+            android:paddingBottom="2dp"
+            android:spinnerMode="dropdown" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tv_referral_code"
+            style="@style/MyAppEditTextViewStyle_new"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:helperTextTextColor="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_referral_code_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@null"
+                android:enabled="false"
+                android:focusable="false"
+                android:hint="@string/referral_code"
+                android:inputType="text"
+                android:text="@{vieModel.uuid}"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tv_invitee_email"
+            style="@style/MyAppEditTextViewStyle_new"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:helperTextTextColor="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tv_invitee_email_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@null"
+                android:hint="@string/invitee_email"
+                android:inputType="textEmailAddress"
+                android:text="@={vieModel.inviteeEmail}"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tv_invitee_contact_number"
+            style="@style/MyAppEditTextViewStyle_new"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:helperTextTextColor="@color/black">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tv_invitee_contact_number_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@null"
+                android:hint="@string/invitee_contact_number"
+                android:inputType="number"
+                android:text="@={vieModel.inviteeContactNumber}"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_refer_now"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="80dp"
+            android:layout_marginVertical="20dp"
+            android:background="@drawable/button_bg"
+            android:text="@string/refer_now" />
+
+    </LinearLayout>
+
+</layout>

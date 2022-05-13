@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.kapilguru.student.exam.ExamViewModel"/>
+
+        <variable
+            name="selectedPosition"
+            type="java.lang.Integer" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_bg"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/white_bg"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/questionsRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.26"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="9"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                tools:listitem="@layout/student_question_recycler" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.04"
+                android:background="@color/grey_2"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@{@string/question_no_string(selectedPosition)}"
+                    android:textColor="@color/purple"
+                    app:fontFamily="@font/rubik_medium"
+                    tools:text="@string/question_no_string" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@{@string/no_marks(viewModel.selectedQuestionAndOption.marks)}"
+                    app:fontFamily="@font/rubik_regular"
+                    tools:text="@string/question_no_string" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@{viewModel.selectedQuestionAndOption.correctOpt.toString().trim().equalsIgnoreCase(viewModel.selectedQuestionAndOption.selectedOpt.toString().trim())? @string/correct_answer : @string/wrong_answer }"
+                    android:textColor="@{viewModel.selectedQuestionAndOption.correctOpt.toString().trim(). equalsIgnoreCase(viewModel.selectedQuestionAndOption.selectedOpt.toString().trim())? @color/green : @color/red }"
+                    app:fontFamily="@font/rubik_regular"
+                    tools:text="@string/question_no_string" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.61"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="2dp"
+                            android:textColor="@color/red"
+                            app:base64ToHtml="@{viewModel.selectedQuestionAndOption.question}"
+                            app:fontFamily="@font/rubik_bold" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/option_a"
+                            android:textColor="@color/black"
+                            app:fontFamily="@font/rubik_regular" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center_vertical"
+                            android:padding="2dp"
+                            android:layout_gravity="center"
+                            app:answersBackground="@{viewModel.selectedQuestionAndOption}"
+                            app:answersOptionNumber="@{@string/option1}"
+                            app:base64ToHtml="@{viewModel.selectedQuestionAndOption.opt1}"
+                            tools:text="check1" />
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/option_b"
+                            android:textColor="@color/black"
+                            app:fontFamily="@font/rubik_regular" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginTop="10dp"
+                            android:padding="2dp"
+                            app:answersBackground="@{viewModel.selectedQuestionAndOption}"
+                            app:answersOptionNumber="@{@string/option2}"
+                            app:base64ToHtml="@{viewModel.selectedQuestionAndOption.opt2}"
+                            tools:text="check1" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/option_c"
+                            android:textColor="@color/black"
+                            app:fontFamily="@font/rubik_regular" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginTop="10dp"
+                            android:padding="2dp"
+                            app:answersBackground="@{viewModel.selectedQuestionAndOption}"
+                            app:answersOptionNumber="@{@string/option3}"
+                            app:base64ToHtml="@{viewModel.selectedQuestionAndOption.opt3}"
+                            tools:text="check1" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/option_d"
+                            android:textColor="@color/black"
+                            app:fontFamily="@font/rubik_regular" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginTop="10dp"
+                            android:padding="2dp"
+                            app:answersBackground="@{viewModel.selectedQuestionAndOption}"
+                            app:answersOptionNumber="@{@string/option4}"
+                            app:base64ToHtml="@{viewModel.selectedQuestionAndOption.opt4}"
+                            tools:text="check1" />
+                    </LinearLayout>
+
+                </ScrollView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

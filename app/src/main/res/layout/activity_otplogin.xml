@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.otpLogin.OTPLoginActivity">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.kapilguru.student.otpLogin.viewModel.OTPLoginViewModel" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/frame_layout_otp_login"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</layout>

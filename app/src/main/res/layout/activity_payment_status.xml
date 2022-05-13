@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.kapilguru.student.payment.model.TransactionStatusResponseData" />
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_bg"
+        android:orientation="vertical"
+        tools:context=".payment.PaymentStatusActivity">
+
+        <include
+            android:id="@+id/actionbar"
+            layout="@layout/custom_action_bar_layout" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_payment_order_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/payment_order_details"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/rubik_bold"
+            android:textColor="@color/yellow"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="14dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_details"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="14dp">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_vertical_40"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.40" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_bank_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/rubik_regular"
+                    android:text="@string/bank_name"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_bank_name_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="@{model.body.bankName}"
+                    android:textColor="@color/purple"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@id/gl_vertical_40"
+                    app:layout_constraintTop_toTopOf="@id/actv_bank_name"
+                    tools:text="Axis Bank" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_trans_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/rubik_regular"
+                    android:text="@string/payment_bank_txn_id"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_bank_name_value" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_trans_id_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="@{model.body.bankTxnId}"
+                    android:textColor="@color/purple"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@id/gl_vertical_40"
+                    app:layout_constraintTop_toTopOf="@id/actv_trans_id"
+                    tools:text="65549404" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_gateway_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/rubik_regular"
+                    android:text="@string/payment_gateway_name"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_trans_id_value" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_gateway_name_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="@{model.body.gatewayName}"
+                    android:textColor="@color/purple"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@id/gl_vertical_40"
+                    app:layout_constraintTop_toTopOf="@id/actv_gateway_name"
+                    tools:text="WALLET" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_trans_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/rubik_regular"
+                    android:text="@string/payment_txn_amount"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_gateway_name_value" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_trans_amount_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="@{model.body.txnAmount}"
+                    android:textColor="@color/purple"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@id/gl_vertical_40"
+                    app:layout_constraintTop_toTopOf="@id/actv_trans_amount"
+                    tools:text="12000.00" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_payment_mode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/rubik_regular"
+                    android:text="@string/payment_mode"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_trans_amount_value" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_payment_mode_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="@{model.body.paymentMode}"
+                    android:textColor="@color/purple"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@id/gl_vertical_40"
+                    app:layout_constraintTop_toTopOf="@id/actv_payment_mode"
+                    tools:text="PPI" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/rubik_regular"
+                    android:text="@string/payment_status"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_payment_mode_value" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_status_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="@{model.body.resultInfo.resultMsg}"
+                    android:textColor="@color/purple"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@id/gl_vertical_40"
+                    app:layout_constraintTop_toTopOf="@id/actv_status"
+                    tools:text="@string/payment_txn_success" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_txn_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/rubik_regular"
+                    android:text="@string/payment_txn_date"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_status_value" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_txn_date_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="@{model.body.txnDate}"
+                    android:textColor="@color/purple"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@id/gl_vertical_40"
+                    app:layout_constraintTop_toTopOf="@id/actv_txn_date"
+                    tools:text="15 Aug 2022" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_txn_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/rubik_regular"
+                    android:text="@string/payment_txn_id"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_txn_date_value" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_txn_id_value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="@{model.body.txnId}"
+                    android:textColor="@color/purple"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintStart_toStartOf="@id/gl_vertical_40"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/actv_txn_id"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:text="20211123111212800110168092203195842" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <Button
+            android:id="@+id/btn_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/yellow"
+            android:text="@string/payment_finish"/>
+
+    </LinearLayout>
+</layout>

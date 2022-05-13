@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.kapilguru.student.searchCourse.SearchCourseViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_bg"
+        android:orientation="vertical"
+        tools:context=".searchCourse.SearchCourseActivity">
+
+        <include
+            android:id="@+id/custom_action_bar"
+            layout="@layout/custom_action_bar_layout" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/five_dp">
+
+
+            <AutoCompleteTextView
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/solid_white_box_edit_bg"
+                android:drawableEnd="@drawable/ic_search"
+                android:drawablePadding="20dp"
+                android:hint="@string/search_here"
+                android:imeOptions="actionDone"
+                android:maxLines="1"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:text="@={viewModel.searchText}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:inputType="text"
+                android:text="@string/all"
+                android:textAlignment="center"
+                app:chipBackgroundColor="@drawable/set_chip_bg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_bestTrainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/best_trainer"
+                android:textAlignment="center"
+                app:chipBackgroundColor="@drawable/set_chip_bg"
+                app:layout_constraintStart_toEndOf="@id/chip_all"
+                app:layout_constraintTop_toBottomOf="@+id/search" />
+
+            <TextView
+                android:id="@+id/filter"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginVertical="8dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/solid_white_box_edit_bg"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="5dp"
+                android:text="@string/filter"
+                app:drawableStartCompat="@drawable/ic_baseline_filter_alt_24"
+                app:layout_constraintStart_toEndOf="@id/chip_bestTrainer"
+                app:layout_constraintTop_toBottomOf="@+id/search" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/chip_all">
+
+                <EditText
+                    android:id="@+id/trainer_search"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="0.75"
+                    android:background="@drawable/solid_white_box_edit_bg"
+                    android:drawableEnd="@drawable/ic_search"
+                    android:drawablePadding="2dp"
+                    android:hint="@string/search_by_trainer"
+                    android:maxLines="1"
+                    android:padding="5dp" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="10dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/search_course_item" />
+
+
+        <include
+            android:id="@+id/noDataAvailable"
+            layout="@layout/layout_no_data_available" />
+
+    </LinearLayout>
+</layout>

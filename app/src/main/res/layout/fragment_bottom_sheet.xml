@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="model"
+            type="com.kapilguru.student.searchCourse.SearchCourseViewModel" />
+
+        <import type="com.kapilguru.student.searchCourse.COURSEFEE"/>
+        <import type="com.kapilguru.student.searchCourse.DURATION"/>
+        <import type="com.kapilguru.student.searchCourse.BATCHTYPE"/>
+
+
+    </data>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:alpha="0.8"
+    android:background="#062D4B"
+    android:orientation="vertical"
+    android:padding="5dp"
+    tools:context=".searchCourse.BottomSheetFragment">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/poppins_medium"
+        android:padding="5dp"
+        android:text="@string/course_fee"
+        android:textColor="@color/white" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/courses_chip_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/course_fee_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/all"
+            android:textAlignment="center"
+            app:chipBackgroundColor="@drawable/set_chip_bg" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/course_fee_low_to_high"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/low_to_high"
+            android:textAlignment="center"
+            app:chipBackgroundColor="@drawable/set_chip_bg" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/course_fee_high_to_low"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/high_to_low"
+            android:textAlignment="center"
+            app:chipBackgroundColor="@drawable/set_chip_bg" />
+
+
+    </com.google.android.material.chip.ChipGroup>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginVertical="5dp"
+        android:background="@color/black" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/duration"
+        android:textColor="@color/white" />
+
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/duration_chip_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/course_duration_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/all"
+            android:textAlignment="center"
+            app:chipBackgroundColor="@drawable/set_chip_bg" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/course_duration_less_30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/less_than_30_days"
+            android:textAlignment="center"
+            app:chipBackgroundColor="@drawable/set_chip_bg" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/course_duration_less_60"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/thirty_31_to_60_days"
+            android:textAlignment="center"
+            app:chipBackgroundColor="@drawable/set_chip_bg" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/course_duration_less_90"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/thirty_61_to_90_days"
+            android:textAlignment="center"
+            app:chipBackgroundColor="@drawable/set_chip_bg" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/course_duration_greater_90"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/greather_than_90_days"
+            android:textAlignment="center"
+            app:chipBackgroundColor="@drawable/set_chip_bg" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginVertical="5dp"
+        android:background="@color/black" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:padding="5dp"
+        android:text="@string/batch_type"
+        android:textColor="@color/white" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/batch_chip_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/course_batch_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/all"
+            android:textAlignment="center"
+            app:chipBackgroundColor="@drawable/set_chip_bg" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/course_batch_weekday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/weekday"
+            android:textAlignment="center"
+            app:chipBackgroundColor="@drawable/set_chip_bg" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/course_batch_weekend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/weekend"
+            android:textAlignment="center"
+            app:chipBackgroundColor="@drawable/set_chip_bg" />
+
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cancel"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:text="@string/Cancel"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/apply_filter"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/gold"
+            android:text="@string/apply"/>
+
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/apply_filter"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_weight="0.5"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:backgroundTint="@color/gold"-->
+<!--            android:text="@string/close"/>-->
+
+    </LinearLayout>
+</LinearLayout>
+</layout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidStudioProjects/kapil-guru-student/app/src/main/res/layout/activity_all_trending_webinars.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/kapil-guru-student/app/src/main/res/layout/activity_certificate_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/kapil-guru-student/app/src/main/res/layout/activity_course_payment_preview.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/kapil-guru-student/app/src/main/res/layout/activity_forgot_password.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/kapil-guru-student/app/src/main/res/layout/activity_otplogin.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/kapil-guru-student/app/src/main/res/layout/activity_webinar_payment_preview.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/kapil-guru-student/app/src/main/res/layout/custom_action_bar_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/kapil-guru-student/app/src/main/res/layout/dash_board_item_view.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/kapil-guru-student/app/src/main/res/layout/fragment_active_webinar.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/kapil-guru-student/app/src/main/res/layout/fragment_dash_board.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/kapil-guru-student/app/src/main/res/layout/fragment_get_otp.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/kapil-guru-student/app/src/main/res/layout/fragment_live_class.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/kapil-guru-student/app/src/main/res/layout/fragment_request_o_t_p.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/kapil-guru-student/app/src/main/res/layout/fragment_validate_otp.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/kapil-guru-student/app/src/main/res/layout/fragment_verify_o_t_p.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/kapil-guru-student/app/src/main/res/layout/item_active_demolecture.xml" value="0.20416666666666666" />
+        <entry key="..\:/AndroidStudioProjects/kapil-guru-student/app/src/main/res/layout/layout_no_data_available.xml" value="0.20416666666666666" />
+        <entry key="..\:/kapil-guru-git/student-module/android-kapil-guru-student-module/app/src/main/res/layout/fragment_dash_board.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

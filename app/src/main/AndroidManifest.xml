@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.kapilguru.student">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_student"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.KapilStudent"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".howToUse.HowToUseActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".referandearn.ReferAndEarnIntroActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".ui.profile.ProfileOverViewActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".certificate.CertificateListActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity android:name=".PdfViewerActivity"
+            android:theme="@style/customParentNoActionBarStyle"/>
+        <activity
+            android:name=".allExamsList.AllExamsListActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".courseDetails.CertificateActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".wallet.requestAmount.RequestAmount"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".wallet.history.EarningsHistoryActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".wallet.referralDetails.ReferralAmountViewDetails"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".exam.questionPaper.QuestionPaperNewActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".exam.questionPaper.QuestionPaperActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".exam.ViewExamResult"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".payment.CoursePaymentPreviewActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".courseDetails.courseSyllabus.CourseSyllabusActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".payment.WebinarPaymentPreviewActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".payment.PaymentStatusActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".wallet.EarningsActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".wallet.earningsDetails.AmountViewDetails"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".jobOpenings.apply.ApplyJobOpeningsActivity"
+            android:exported="true"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".referandearn.myReferrals.MyReferralsListActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".referandearn.ReferAndEarnActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".jobOpenings.JobOpeningsActivity"
+            android:exported="true"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".allPopularTrendingCourses.AllPopularTrendingCourses"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".courseDetails.aboutTrainer.AboutTrainer"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".courseDetails.TrainingFeatures"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".courseDetails.CourseDescriptionActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".topCategories.selectedTopCategory.SelectedTopCategoryActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".topCategories.TopCategoriesListActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".courseDetails.batchList.BatchList"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".courseDetails.CourseDetailsActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".searchCourse.SearchCourseActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".completionRequest.CompletionRequestActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".allTrendingWebinars.AllTrendingWebinars"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".allTrendingDemos.AllTrendingDemosActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".splashScreen.SplashScreenActivity"
+            android:label="@string/app_name"
+            android:exported="true"
+            android:theme="@style/customParentNoActionBarStyle">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".webinar.WebinarActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".demoLecture.DemoLectureActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity android:name=".BaseActivity" />
+        <activity
+            android:name=".login.LoginActivity"
+            android:theme="@style/onboard" />
+        <activity android:name=".homeActivity.HomeActivity" />
+        <activity
+            android:name=".announcement.AnnouncementActivity"
+            android:label="@string/announcements"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".ui.profile.bank.BankDetailsActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".ui.changePassword.ChangePasswordActivity"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
+        <activity
+            android:name=".ui.profileInfo.view.ProfileDetailsActivity"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
+        <activity
+            android:name=".myClassRoomDetails.MyClassDetailsActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".myClassroom.totalActiveBatches.ActiveBatchesActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".otpLogin.OTPLoginActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".signup.SignUpActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".forgotPassword.ForgotPasswordActivity"
+            android:label="@string/forgot_password"
+            android:parentActivityName=".login.LoginActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity" />
+        <activity
+            android:name=".demoLecture.demoLectureDetails.DemoLectureDetailsActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".courseDetails.review.ui.review.ReviewActivity"
+            android:theme="@style/customParentNoActionBarStyle" />
+        <activity
+            android:name=".webinar.webinarDetails.WebinarDetailsActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/customParentNoActionBarStyle" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.kapilguru.student.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name=".onBoarding.OnBoardingActivity"
+            android:theme="@style/onboard" />
+    </application>
+
+</manifest>

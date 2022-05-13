@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<LinearLayout
+    android:id="@+id/customLayout"
+    style="@style/TextAppearance.MaterialComponents.Button"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="@color/home_top_bg3"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/loadingButtonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Login "
+        android:textColor="@color/white"/>
+
+     <com.google.android.material.progressindicator.CircularProgressIndicator
+         android:id="@+id/loadingCircularIndicator"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:indeterminate="true"
+         android:visibility="gone"
+         app:indicatorSize="24dp"
+         app:indicatorColor="@color/white"
+         app:trackColor="@color/grey_2"
+         tools:trackColor="@color/grey_2"
+         tools:indicatorColor="@color/black" />
+
+</LinearLayout>
+</merge>

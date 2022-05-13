@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="model"
+            type="com.kapilguru.student.homeActivity.models.AllWebinarsApi" />
+    </data>
+
+
+<androidx.cardview.widget.CardView
+    android:id="@+id/card"
+    android:layout_width="200dp"
+    android:layout_height="300dp"
+    style="@style/AppCardViewStyle_DashBoard">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:scaleType="fitXY"
+            app:loadGlideImage="@{model.image}"
+            android:src="@drawable/default_image" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/orange_heading_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/five_dp"
+            android:maxLines="2"
+            android:minLines="2"
+            android:ellipsize="end"
+            android:text="@{model.title}"
+            tools:text="YOGA" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/blue_white_solid_bg">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/date"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginStart="@dimen/five_dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:dateToString="@{model.startDate}"
+                tools:text="abc check wow" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/date_dash"
+                android:layout_marginStart="@dimen/five_dp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textColor="@color/black"
+                android:layout_toEndOf="@id/date"
+                tools:text="-" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/endDate"
+                android:layout_marginStart="@dimen/five_dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:dateToString="@{model.endDate}"
+                android:layout_below="@id/date"
+                tools:text="abc check wow" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/endDate"
+                android:layout_marginStart="@dimen/five_dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:timeToString="@{model.startDate}"
+                tools:text="abc check" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/end_dash"
+                android:layout_marginStart="@dimen/five_dp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:textColor="@color/black"
+                android:layout_toEndOf="@id/time"
+                android:layout_below="@id/endDate"
+                tools:text="-" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/endTime"
+                android:layout_marginStart="@dimen/five_dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:timeToString="@{model.endDate}"
+                android:layout_toEndOf="@id/end_dash"
+                android:layout_below="@id/endDate"
+                tools:text="abc check wow" />
+
+      <!--      <View
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="5dp"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/blue_circle"
+                android:textAlignment="center" />-->
+
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:gravity="center"
+                android:background="@drawable/blue_circle"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/hours"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    app:intToString="@{model.durationDays}"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    tools:text="34" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Days"
+                    android:gravity="center"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    tools:text="Hours" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/language"
+            style="@style/medium_text_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_marginStart="@dimen/five_dp"
+            android:visibility="gone"
+            tools:text="abc check" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_marginStart="@dimen/five_dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:text="@{@string/by(model.speakerName)}"
+            tools:text="abc check" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_marginStart="@dimen/five_dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/orange_2"
+            app:amountInRupees="@{model.price}"
+            tools:text="abc check" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+
+        <ImageView
+            android:id="@+id/share_icon"
+            android:layout_marginStart="@dimen/five_dp"
+            android:layout_width="0dp"
+            android:layout_weight="0.4"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:textColor="@color/orange_2"
+            android:src="@drawable/share"
+            tools:text="abc check" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_know_more"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:layout_gravity="end"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="5dp"
+            android:backgroundTint="@color/light_blue"
+            android:text="@string/know_more"
+            android:padding="0dp"
+            android:textColor="@color/blue_3"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            app:cornerRadius="12dp"
+            app:strokeColor="@color/blue"
+            app:strokeWidth="1dp" />
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+
+</layout>

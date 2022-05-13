@@ -1,0 +1,195 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
+    id 'com.google.firebase.crashlytics'
+}
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    signingConfigs {
+        debug {
+//            storeFile file('D:\\Suresh\\KCS\\kapil-guru-student-signed-ap-details\\kapil_guru_student_app.jks')
+//            storePassword 'K@PILguru@$tudent$123'
+//            keyAlias 'KapilGuruStudent'
+//            keyPassword 'K@PILguru@$tudent$123'
+        }
+        release {
+            storeFile file('D:\\kapilit-config-files\\kapil-guru\\kapil_guru_student_app.jks')
+            storePassword 'K@PILguru@$tudent$123'
+            keyAlias 'KapilGuruStudent'
+            keyPassword 'K@PILguru@$tudent$123'
+
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+
+    compileSdkVersion 31
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.kapilguru.student"
+        minSdkVersion 23
+        targetSdkVersion 31
+        versionCode 34
+        versionName "1.0.7" //App flow change.functionality change.bug fixing
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    buildTypes {
+
+        debug {
+//            buildConfigField "String", "BASE_URL", '"http://44.197.234.100:9000/"'
+//            buildConfigField "String", "SHARE_URL", '"http://44.197.234.100:4200/"'
+            buildConfigField "String", "BASE_URL", '"http://192.168.22.176:9000/"'
+            buildConfigField "String", "SHARE_URL", '"http://192.168.22.176:9000/"'
+            buildConfigField "Boolean", "IS_RELEASE_BUILD", 'false'
+        }
+
+        staging.initWith(buildTypes.debug)
+        staging {
+//            buildConfigField "String", "BASE_URL", '"https://kapilguru.com/kg-v1/"'
+//            buildConfigField "String", "SHARE_URL", '"https://kapilguru.com/"'
+            buildConfigField "String", "BASE_URL", '"https://beta.kapilguru.com/kg-v1/"'
+            buildConfigField "String", "SHARE_URL", '"https://beta.kapilguru.com/"'
+            buildConfigField "Boolean", "IS_RELEASE_BUILD", 'false'
+        }
+
+        release {
+            signingConfig signingConfigs.release
+            crunchPngs false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", '"https://kapilguru.com/kg-v1/"'
+            buildConfigField "String", "SHARE_URL", '"https://kapilguru.com/"'
+            buildConfigField "Boolean", "IS_RELEASE_BUILD", 'true'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8.toString()
+        targetCompatibility JavaVersion.VERSION_1_8.toString()
+    }
+//    kotlinOptions {
+//        jvmTarget = JavaVersion.VERSION_1_8.toString()
+//    }
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+    configurations.all {
+        resolutionStrategy {
+            force 'androidx.core:core-ktx:1.6.0'
+        }
+    }
+}
+
+repositories {
+    maven {
+        url("$rootDir/videomeet_sdk")
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    // Annotation processor
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+    //  Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$retrofit_logging_interceptor"
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'androidx.annotation:annotation:1.2.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    // Room
+
+    // Glide or
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+//    implementation 'androidx.wear:wear:1.0.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+
+    //state Progress bar
+    implementation 'com.kofigyan.stateprogressbar:stateprogressbar:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+    // tool tip
+    implementation "com.github.skydoves:balloon:1.3.5"
+
+    // Rich text Editor
+    implementation 'jp.wasabeef:richeditor-android:2.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    // ImageCropper
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
+
+    //videomeet
+    implementation('org.jitsi.react:jitsi-meet-sdk:+') { transitive = true }
+//    compileOnly 'com.google.android.wearable:wearable:2.6.0'
+
+
+    //paytm integration
+    implementation "com.squareup.okhttp3:okhttp:$retrofit_logging_interceptor"
+    implementation('com.paytm.appinvokesdk:appinvokesdk:1.6.3')/*{
+        exclude group: "com.squareup.okhttp3", module: 'okhttp3'
+    }*/
+
+    //     Kotlin + coroutines work manager
+    implementation "androidx.work:work-runtime-ktx:2.7.1"
+    implementation "androidx.work:work-multiprocess:2.7.1"
+
+    // Firebase Analytics
+    implementation platform('com.google.firebase:firebase-bom:29.0.3')
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
+    // MP Chart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    // permissions
+    implementation 'com.karumi:dexter:6.2.3'
+
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2' // trying out
+
+    implementation 'com.google.android.play:core:1.10.3' // in app update
+
+    implementation 'com.google.android.exoplayer:exoplayer:2.15.1' // video player
+//    implementation 'com.google.android.exoplayer:exoplayer-core:2.17.1'
+//    implementation 'com.google.android.exoplayer:exoplayer-dash:2.17.1'
+//    implementation 'com.google.android.exoplayer:exoplayer-ui:2.17.1'
+
+}

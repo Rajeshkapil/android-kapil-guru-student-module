@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "890676650151",
+    "project_id": "kapil-guru-student",
+    "storage_bucket": "kapil-guru-student.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890676650151:android:bcf7014340a1e8ba84bb82",
+        "android_client_info": {
+          "package_name": "com.kapilguru.student"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890676650151-j7t1n0glj3jm9udjetgqni4gkgsskb8g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kapilguru.student",
+            "certificate_hash": "fa98f7db7f35fed066fc1c60ec464afe43371b06"
+          }
+        },
+        {
+          "client_id": "890676650151-fc200p37gsapklfmp0qapu36jda6jd4h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAigu78iEeWMHig0x3CLabrj7CynMTOy9s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "890676650151-fc200p37gsapklfmp0qapu36jda6jd4h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

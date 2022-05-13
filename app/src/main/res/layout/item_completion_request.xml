@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.kapilguru.student.completionRequest.model.CompletionRequestResData" />
+        <variable
+            name="studentName"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView1"
+            style="@style/AppCardViewStyle_latest"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="8dp">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_vertical_25"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.25" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_vertical_55"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.55" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_title"
+                    style="@style/grey_heading_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/course"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_title_value"
+                    style="@style/orange_heading_text_style"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{model.courseTitle}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/actv_title"
+                    tools:text="ANDROID" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_trainer_name"
+                    style="@style/key_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/speaker"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_title_value" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_trainer_name_value"
+                    style="@style/value_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{model.trainerName}"
+                    android:textColor="@color/blue_3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_trainer_name"
+                    tools:text="Elon Musk" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_trainer_id"
+                    style="@style/key_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/trainer_id"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_trainer_name_value" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_trainer_id_value"
+                    style="@style/value_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_6"
+                    app:intToString="@{model.trainerId}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_trainer_id"
+                    tools:text="12" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_batch_code"
+                    style="@style/key_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/batch_code"
+                    app:layout_constraintStart_toStartOf="@id/gl_vertical_25"
+                    app:layout_constraintTop_toTopOf="@id/actv_trainer_id" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_batch_code_value"
+                    style="@style/value_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_6"
+                    android:text="@{model.batchCode}"
+                    app:layout_constraintStart_toStartOf="@id/gl_vertical_25"
+                    app:layout_constraintTop_toBottomOf="@id/actv_batch_code"
+                    tools:text="BT16898" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_batch_time"
+                    style="@style/key_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/batch_time"
+                    app:layout_constraintStart_toStartOf="@id/gl_vertical_55"
+                    app:layout_constraintTop_toTopOf="@id/actv_trainer_id" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_batch_time_value"
+                    style="@style/value_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_6"
+                    app:intToString="@{model.trainerId}"
+                    app:layout_constraintStart_toStartOf="@id/gl_vertical_55"
+                    app:layout_constraintTop_toBottomOf="@id/actv_batch_time"
+                    tools:text="06-Oct-2021 04:05 PM" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_student_name"
+                    style="@style/value_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/dear_name(studentName)}"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_batch_time_value"
+                    tools:text="Dear Elon Musk"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_completion_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/completion_desc"
+                    android:textColor="@color/grey"
+                    android:fontFamily="@font/poppins_medium"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_student_name" />
+
+                <Button
+                    android:id="@+id/btn_reject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reject"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="@color/red"
+                    app:completionStatus="@{model.bcrReqRespStatus}"
+                    app:buttonType="@{@string/update}"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_accept"
+                    app:layout_constraintTop_toTopOf="@+id/btn_accept"/>
+
+                <Button
+                    android:id="@+id/btn_accept"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/accept"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:backgroundTint="@color/blue_3"
+                    app:completionStatus="@{model.bcrReqRespStatus}"
+                    app:buttonType="@{@string/update}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/actv_completion_desc"/>
+
+                <Button
+                    android:id="@+id/btn_updatedStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:enabled="false"
+                    app:updatedStatus="@{model.bcrReqRespStatus}"
+                    app:completionStatus="@{model.bcrReqRespStatus}"
+                    app:buttonType="@{@string/updated}"
+                    app:layout_constraintEnd_toStartOf="@id/btn_reject"
+                    app:layout_constraintTop_toBottomOf="@+id/actv_completion_desc"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

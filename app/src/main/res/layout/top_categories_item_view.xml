@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.kapilguru.student.homeActivity.models.TopCategoriesApi" />
+    </data>
+
+<androidx.cardview.widget.CardView
+    android:layout_width="@dimen/dash_board_top_category_item_length"
+    android:layout_height="@dimen/dash_board_top_category_item_length"
+    android:layout_marginHorizontal="3dp"
+    style="@style/AppCardViewStyle_latest_no_padding">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        app:loadGlideImage="@{model.code}"
+        android:adjustViewBounds="true"
+        android:src="@drawable/default_image"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="20dp"
+        android:layout_marginHorizontal="10dp"
+        style="@style/white_heading_text_style_poppins_medium"
+        android:textSize="14sp"
+        android:text="@{model.categoryName}" />
+
+</RelativeLayout>
+
+</androidx.cardview.widget.CardView>
+
+</layout>

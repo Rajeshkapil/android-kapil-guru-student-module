@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.kapilguru.student.signup.viewModel.SignUpViewModel"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".signup.SignupAuthFragment"
+        android:background="@color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/signup_bg"
+            tools:context=".forgotPassword.GetOtpFragment">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_kapil_guru"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="-30dp"
+                android:scaleType="fitCenter"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/kapil_home_ic" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_vertical_7"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.07" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/aciv_back"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_back"
+                android:tint="@color/grey"
+                app:layout_constraintStart_toStartOf="@id/gl_vertical_7"
+                app:layout_constraintTop_toBottomOf="@id/iv_kapil_guru" />
+
+            <TextView
+                android:id="@+id/tv_authenticate_with"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/authenticate_with"
+                android:textColor="@color/purple_3"
+                android:textSize="22sp"
+                android:fontFamily="@font/montserrat_medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_kapil_guru"/>
+
+            <TextView
+                android:id="@+id/tv_otp_mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/rubik_regular"
+                android:text="@string/otp_phone"
+                android:textColor="@color/purple_3"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_authenticate_with" />
+
+            <TextView
+                android:id="@+id/tv_otp_phone_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/masked_phone_number"
+                android:textColor="@color/purple_3"
+                android:textSize="18sp"
+                android:fontFamily="@font/rubik_regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_otp_mail" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_otp_phone"
+                style="@style/MyAppDenseOutlined"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginHorizontal="80dp"
+                app:helperTextTextColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_otp_phone_no">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tiet_otp_phone_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@null"
+                    android:hint="@string/hint_otp_mobile"
+                   android:text="@={viewModel.otpMobile}"
+                    android:maxLength="6"
+                    android:inputType="phone"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                style="@style/ButtonLogin"
+                android:id="@+id/btn_resend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="24dp"
+                android:text="@string/resend_otp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/til_otp_phone" />
+
+            <Button
+                style="@style/ButtonLogin"
+                android:id="@+id/btn_authenticate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="24dp"
+                android:text="@string/authenticate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_resend" />
+
+            <LinearLayout
+                android:id="@+id/ll_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="60dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_have_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="@string/have_account"
+                    android:textColor="@color/purple_2"
+                    android:textSize="16sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_have_acount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="@string/login"
+                    android:textColor="@color/blue_3"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+</layout>

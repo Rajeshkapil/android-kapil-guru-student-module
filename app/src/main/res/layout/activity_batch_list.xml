@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/main_bg"
+    tools:context=".courseDetails.batchList.BatchList">
+
+
+    <include
+        android:id="@+id/custom_action_bar"
+        layout="@layout/custom_action_bar_layout"
+        tools:layout_editor_absoluteX="-25dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="5dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddbatch"
+        app:layout_constraintTop_toBottomOf="@+id/custom_action_bar"
+        tools:layout_editor_absoluteX="25dp"
+        tools:listitem="@layout/batch_item" />
+
+    <include
+        android:id="@+id/noDataAvailable"
+        layout="@layout/layout_no_data_available"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/recycler"
+        app:layout_constraintTop_toBottomOf="@+id/custom_action_bar" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAddbatch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/request_batch"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

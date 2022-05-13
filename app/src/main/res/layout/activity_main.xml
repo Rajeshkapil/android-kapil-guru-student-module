@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools">
+
+<data>
+
+    <variable
+        name="loginViewModel"
+        type="com.kapilguru.student.login.viewModel.LoginViewModel" />
+</data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login.LoginActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_image_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_card_top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_vertical_20"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.20" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_vertical_80"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.80" />
+
+    <ImageView
+        android:id="@+id/imageLogo_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/login_bg"
+        app:layout_constraintBottom_toBottomOf="@+id/gl_image_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageLogo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/kapil_guru_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/gl_card_top"
+        app:layout_constraintEnd_toEndOf="@id/gl_vertical_80"
+        app:layout_constraintStart_toStartOf="@id/gl_vertical_20"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_view"
+        style="@style/AppCardViewStyle_latest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gl_card_top">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp"
+            android:paddingHorizontal="36dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/actv_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/login"
+                android:textAllCaps="true"
+                android:textColor="@color/blue_2"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/ll_input_fields"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/ll_sign_up"
+                app:layout_constraintTop_toBottomOf="@id/actv_login">
+
+                <EditText
+                    android:id="@+id/username"
+                    style="@style/EditTextLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/username_hint"
+                    android:inputType="textEmailAddress"
+                    android:selectAllOnFocus="true"
+                    android:text="@={loginViewModel.userName}" />
+
+                <EditText
+                    android:id="@+id/password"
+                    style="@style/EditTextLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:hint="@string/prompt_password"
+                    android:imeActionLabel="@string/action_sign_in_short"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:selectAllOnFocus="true"
+                    android:text="@={loginViewModel.password}" />
+
+                <TextView
+                    android:id="@+id/tv_terms_and_conds"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/light_pink_background"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:text="@string/terms_and_conditions_login"
+                    android:textAlignment="center"
+                    android:textAppearance="@font/poppins_regular"
+                    android:textColor="@color/black_2"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:id="@+id/login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/rectangle_curve_pink_2"
+                    android:backgroundTint="@color/blue"
+                    android:gravity="center"
+                    android:translationZ="5dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="10dp"
+                        android:paddingHorizontal="24dp"
+                        android:paddingVertical="8dp"
+                        android:text="@string/login"
+                        android:visibility="gone"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+                    <com.kapilguru.student.customUI.CustomLoadingButton
+                        android:id="@+id/customButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/login_arrow"
+                        app:customText="@string/login"
+                        android:onClick="@{loginViewModel::onSubmitClick}"
+                        app:shouldLoadingShow="false"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/forgotPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="8dp"
+                    android:onClick="onForgotPasswordClicked"
+                    android:padding="4dp"
+                    android:text="@string/forgot_password"
+                    android:textStyle="bold"
+                    android:textColor="@color/purple_2" />
+
+                <TextView
+                    android:id="@+id/tv_or"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/or"
+                    android:textColor="@color/purple_2"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@+id/button_otp_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:backgroundTint="@color/purple_2"
+                    android:text="@string/login_with_otp"
+                    android:textColor="@color/white"
+                    android:layout_marginVertical="8dp"/>
+
+               <!-- <Button
+                    android:id="@+id/button_otp_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:translationZ="8dp"
+                    android:backgroundTint="@color/white"
+                    android:text="@string/login_with_otp"
+                    android:textColor="@color/purple"
+                    android:layout_marginVertical="8dp"/>-->
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_sign_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ll_input_fields">
+
+                <TextView
+                    android:id="@+id/tv_signup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:gravity="center"
+                    android:text="@string/signup"
+                    android:textColor="@color/purple_2"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_signup_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/signup_label"
+                    android:textColor="@color/blue_3"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

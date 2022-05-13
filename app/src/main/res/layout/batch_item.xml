@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="model"
+            type="com.kapilguru.student.courseDetails.model.BatchesItem" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_view"
+            style="@style/AppCardViewStyle_simple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_height="match_parent"
+                android:layout_width="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginHorizontal="12dp">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/gl_vertical_30"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.35" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/gl_vertical_70"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.75" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_batch_code"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintEnd_toEndOf="@id/gl_vertical_30"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_batch_code"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/rubik_regular"
+                            android:padding="1dp"
+                            android:text="@string/start_date"
+                            android:textColor="@color/black_2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_batch_code_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/rubik_medium"
+                            android:padding="1dp"
+                            app:dateToString="@{model.startDate}"
+                            android:textColor="@color/purple"
+                            app:layout_constraintStart_toStartOf="@id/actv_batch_code"
+                            app:layout_constraintTop_toBottomOf="@id/actv_batch_code"
+                            tools:text="ABC - 1234" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_start_date"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintEnd_toEndOf="@id/gl_vertical_30"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cl_batch_code">
+
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_start_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/rubik_regular"
+                            android:padding="1dp"
+                            android:text="@string/start_time"
+                            android:textColor="@color/black_2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_start_date_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/rubik_medium"
+                            android:padding="1dp"
+                            app:timeToString="@{model.startDate}"
+                            android:textColor="@color/purple"
+                            app:layout_constraintStart_toStartOf="@id/actv_start_date"
+                            app:layout_constraintTop_toBottomOf="@id/actv_start_date"
+                            tools:text="01 Jul, 2021" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_end_date"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cl_start_date">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_end_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/rubik_regular"
+                            android:padding="1dp"
+                            android:text="@string/batch_days"
+                            android:textColor="@color/black_2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="End Date" />
+
+
+                        <LinearLayout
+                            android:id="@+id/lLayoutDays"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingBottom="4dp"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="@id/actv_end_date"
+                            app:layout_constraintTop_toBottomOf="@id/actv_end_date"
+                            >
+
+                            <TextView
+                                android:id="@+id/monday"
+                                style="@style/my_class_room_classDay"
+                                android:layout_marginTop="20dp"
+                                android:text="M"
+                                app:classAvailable="@{model.dayMon}"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/tuesday"
+                                style="@style/my_class_room_classDay"
+                                android:layout_marginTop="20dp"
+                                android:text="T"
+                                app:classAvailable="@{model.dayTue}"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/wednesday"
+                                style="@style/my_class_room_classDay"
+                                android:layout_marginTop="20dp"
+                                android:text="w"
+                                app:classAvailable="@{model.dayWed}"
+                                android:textSize="12sp"
+
+                                />
+
+                            <TextView
+                                android:id="@+id/thursday"
+                                style="@style/my_class_room_classDay"
+                                android:layout_marginTop="20dp"
+                                android:text="T"
+                                app:classAvailable="@{model.dayThu}"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/friday"
+                                style="@style/my_class_room_classDay"
+                                android:layout_marginTop="20dp"
+                                android:text="F"
+                                app:classAvailable="@{model.dayFri}"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/saturday"
+                                style="@style/my_class_room_classDay"
+                                android:layout_marginTop="20dp"
+                                android:text="S"
+                                app:classAvailable="@{model.daySat}"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/sunday"
+                                style="@style/my_class_room_classDay"
+                                android:layout_marginTop="20dp"
+                                android:text="S"
+                                app:classAvailable="@{model.daySun}"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_trainer_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintEnd_toEndOf="@id/gl_vertical_70"
+                        app:layout_constraintStart_toStartOf="@id/gl_vertical_30"
+                        app:layout_constraintTop_toTopOf="parent">
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_trainer_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/rubik_regular"
+                            android:padding="1dp"
+                            android:text="@string/end_date"
+                            android:textColor="@color/black_2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_trainer_name_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/rubik_medium"
+                            android:padding="1dp"
+                            app:dateToString="@{model.endDate}"
+                            app:layout_constraintStart_toStartOf="@id/actv_trainer_name"
+                            app:layout_constraintTop_toBottomOf="@id/actv_trainer_name"
+                            tools:text="Einstein" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_batch_time"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintEnd_toEndOf="@id/gl_vertical_70"
+                        app:layout_constraintStart_toStartOf="@id/gl_vertical_30"
+                        app:layout_constraintTop_toBottomOf="@id/cl_trainer_name">
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_batch_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/rubik_regular"
+                            android:padding="1dp"
+                            android:text="@string/end_time"
+                            android:textColor="@color/black_2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="Batch Time"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_batch_time_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/rubik_medium"
+                            android:padding="1dp"
+                            app:timeToString="@{model.endDate}"
+                            android:textColor="@color/purple"
+                            app:layout_constraintStart_toStartOf="@id/actv_batch_time"
+                            app:layout_constraintTop_toBottomOf="@id/actv_batch_time"
+                            tools:text="10: 30 am" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/enroll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="8dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cl_end_date">
+
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_enroll"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:backgroundTint="@color/blue"
+                            android:text="@string/enroll_now"
+                            android:visibility="@{model.isBatchFilled() == 0 ? View.VISIBLE : View.GONE}"
+                            android:textColor="@color/white"
+                            app:strokeColor="@color/blue"
+                            app:strokeWidth="1dp" />
+
+
+                    </LinearLayout>
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:sessionsInDays= "@{model.noOfDays}"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cl_end_date"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_status"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="4dp"
+                        android:paddingVertical="4dp"
+                        android:paddingHorizontal="4dp"
+                        android:layout_marginTop="8dp"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse"
+                        android:background="@drawable/rectangle_curve_pink_2"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/aciv_down_arrow"
+                        tools:text="Approved" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/aciv_down_arrow"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:src="@drawable/ic_arrow_down_24px"
+                        app:layout_constraintTop_toTopOf="@id/actv_status"
+                        app:layout_constraintBottom_toBottomOf="@+id/actv_status"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_student_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/cl_trainer_name"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/cl_batch_time">
+
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_marginTop="20dp"
+                            android:id="@+id/actv_students_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="4dp"
+                            android:fontFamily="@font/rubik_medium"
+                            android:textSize="14sp"
+                            app:amountInRupees="@{model.discountedPrice}"
+                            android:textColor="@color/orange"
+                            android:layout_marginStart="10dp"
+                            tools:text="2000" />
+                    </RelativeLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

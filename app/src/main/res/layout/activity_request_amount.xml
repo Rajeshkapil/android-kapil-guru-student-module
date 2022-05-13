@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="model"
+            type="com.kapilguru.student.wallet.requestAmount.RequestAmountViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".wallet.requestAmount.RequestAmount">
+
+        <include
+            android:id="@+id/custom_action_bar"
+            layout="@layout/custom_action_bar_layout"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/amountWithDrawTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/select_amount_to_withdraw"
+                android:textColor="@color/black"
+                app:fontFamily="@font/poppins_bold" />
+
+
+            <CheckBox
+                android:id="@+id/refund_check_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/refund_amount" />
+
+            <CheckBox
+                android:id="@+id/referral_check_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/referral_amount" />
+
+            <CheckBox
+                android:id="@+id/price_check_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/price_amount" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/paymentDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/payment_details"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:fontFamily="@font/poppins_bold" />
+
+            <LinearLayout
+                android:id="@+id/refund_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="1"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:text="@string/referral_amount"
+                    app:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/black" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:textColor="@color/black"
+                    android:textAlignment="textEnd"
+                    app:fontFamily="@font/poppins_bold"
+                    app:amountInRupees="@{model.earningsSummary.referralAmountAvailable}" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/referral_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="1"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:text="@string/refund_amount"
+                    app:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/black" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:textColor="@color/black"
+                    app:fontFamily="@font/poppins_bold"
+                    android:textAlignment="textEnd"
+                    app:amountInRupees="@{model.earningsSummary.refundAmountAvailable}" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/price_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="1"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:text="@string/price_amount"
+                    app:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/black" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:textColor="@color/black"
+                    android:textAlignment="textEnd"
+                    app:fontFamily="@font/poppins_bold"
+                    app:amountInRupees="@{model.earningsSummary.prizesAmountAvailable}"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/requested_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:text="@string/total_requested_amount"
+                    app:fontFamily="@font/poppins_regular"
+                    android:textColor="@color/black" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/black"
+                    app:fontFamily="@font/poppins_bold"
+                    app:amountInRupees="@{model.totalAmount}"
+                    />
+
+            </LinearLayout>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/requested_amount_process_info_txt"
+                android:textColor="@color/red"
+                android:textStyle="bold" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_request_money"
+                style="@style/yellow_button_style"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/request_money" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

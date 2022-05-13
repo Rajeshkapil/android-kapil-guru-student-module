@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="model"
+            type="com.kapilguru.student.searchCourse.model.PositionArrayItem" />
+
+    </data>
+
+<com.google.android.material.card.MaterialCardView
+    android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/AppCardViewStyle_simple">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{model.courseBadgeId == 0 ? View.GONE : View.VISIBLE}"
+            style="@style/best_trainer_style" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/img_profile_pic"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:elevation="12dp"
+                app:strokeColor="@color/orange"
+                android:layout_centerHorizontal="true"
+                android:layout_marginEnd="20dp"
+                android:thicknessRatio="1.9"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/title">
+
+            <ImageView
+                android:id="@+id/img_profile_pic_1"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:padding="5dp"
+                android:scaleType="centerCrop"
+                app:loadGlideImage="@{model.courseImage}" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/title"
+                style="@style/orange_heading_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{model.courseTitle}"
+                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toEndOf="@id/img_profile_pic"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="sample"/>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/trainerLabel"
+                style="@style/grey_heading_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trainer : "
+                android:layout_marginTop="-5dp"
+                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toEndOf="@id/img_profile_pic"
+                app:layout_constraintTop_toBottomOf="@id/title" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tainerValue"
+                style="@style/grey_heading_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{model.trainerName}"
+                android:singleLine="true"
+                android:textColor="@color/blue"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:layout_constraintStart_toEndOf="@id/trainerLabel"
+                app:layout_constraintTop_toTopOf="@+id/trainerLabel"
+                tools:text="Raja" />
+
+
+            <androidx.appcompat.widget.AppCompatRatingBar
+                android:id="@+id/rating_bar"
+                style="@android:style/Widget.DeviceDefault.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="-4dp"
+                app:ratingbar="@{model.courseRating}"
+                app:layout_constraintStart_toEndOf="@+id/img_profile_pic"
+                app:layout_constraintTop_toBottomOf="@+id/trainerLabel" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/studentNUmber"
+                style="@style/grey_heading_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:gravity="center"
+                tools:text="100 Students"
+                android:text="@{model.totalStudentsRated +` Reviews`}"
+                android:textColor="@color/blue"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/rating_bar"
+                app:layout_constraintTop_toTopOf="@+id/rating_bar" />
+
+            <com.kapilguru.student.customUI.KeyValueText
+                android:id="@+id/experience"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="4dp"
+                app:experienceYears="@{model.trainersYearOfExp}"
+                app:key_title="@string/experience"
+                app:layout_constraintEnd_toStartOf="@+id/keyValueText3"
+                app:layout_constraintStart_toEndOf="@id/img_profile_pic"
+                app:layout_constraintTop_toBottomOf="@id/rating_bar" />
+
+
+            <com.kapilguru.student.customUI.KeyValueText
+                android:id="@+id/keyValueText3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="4dp"
+                app:keyValueToInt="@{model.totalNoOfStudentsTrained}"
+                app:key_title="@string/trained_students_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/experience"
+                app:layout_constraintTop_toBottomOf="@id/rating_bar" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/smoke_white">
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_horizontal_03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.3"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_horizontal_06"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.6"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_horizontal_068"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.68"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_horizontal_09"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="363dp" />
+
+            <com.kapilguru.student.customUI.KeyValueText
+                android:id="@+id/batchType"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:key_title="@string/batch_type"
+                app:layout_constraintEnd_toStartOf="@id/guideline_horizontal_03"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setBatchType="@{model.batchtype}" />
+
+            <com.kapilguru.student.customUI.KeyValueText
+                android:id="@+id/courseDuration"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/five_dp"
+                android:layout_marginTop="8dp"
+                app:keyValueCourseDuaration="@{model.durationDays}"
+                app:key_title="@string/course_duration"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_horizontal_068"
+                app:layout_constraintStart_toEndOf="@id/guideline_horizontal_03"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/originalPrice"
+                style="@style/key_text_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:textAlignment="textEnd"
+                app:amountInRupeesStrike="@{model.actualFee}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline_horizontal_068"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="5000" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/discountPrice"
+                style="@style/orange_heading_text_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                app:amountInRupees="@{model.fee}"
+                app:layout_constraintEnd_toEndOf="@+id/originalPrice"
+                app:layout_constraintStart_toStartOf="@+id/originalPrice"
+                app:layout_constraintTop_toBottomOf="@id/originalPrice"
+                tools:text="4000" />
+
+
+            <com.kapilguru.student.customUI.KeyValueText
+                android:id="@+id/language"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:key_title="@string/languages"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/know_more"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/batchType"
+                app:value="5 years" />
+
+
+            <Button
+                android:id="@+id/know_more"
+                style="@style/ButtonLogin"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:text="@string/know_more"
+                android:textColor="@color/white"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/guideline_horizontal_068"
+                app:layout_constraintTop_toBottomOf="@id/discountPrice" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+
+
+</com.google.android.material.card.MaterialCardView>
+</layout>

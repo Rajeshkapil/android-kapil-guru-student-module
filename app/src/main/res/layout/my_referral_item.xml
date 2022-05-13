@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.kapilguru.student.referandearn.myReferrals.model.MyReferralResData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_view"
+            style="@style/AppCardViewStyle_latest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_referral_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/referral_type_colon"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_referral_type_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{model.referralType}"
+                    android:textColor="@color/black"
+                    android:textAllCaps="true"
+                    app:layout_constraintStart_toEndOf="@id/actv_referral_type"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Student" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="4dp"
+                    android:background="@drawable/rectangle_curve_pink_2"
+                    android:backgroundTint="@color/pink_3"
+                    android:drawablePadding="4dp"
+                    android:textColor="@color/black_2"
+                    app:myReferralStatus="@{model.referralExpiryDate}"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:drawableStart="@drawable/status_approved_circle"
+                    tools:text="Approved" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/invitee_email_colon"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_referral_type_value" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_email_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{model.inviteeEmail}"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toEndOf="@id/actv_email"
+                    app:layout_constraintTop_toTopOf="@id/actv_email"
+                    tools:text="abc@gmail.com" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_contact_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/invitee_contact_no_colon"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_email_value" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_contact_no_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{model.inviteeContactNumber}"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toEndOf="@id/actv_contact_no"
+                    app:layout_constraintTop_toTopOf="@id/actv_contact_no"
+                    tools:text="912345678" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/amount_colon"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_contact_no_value" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_amount_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    app:doubleToCountTwoDigits="@{model.referralAmountEarned}"
+                    app:layout_constraintStart_toEndOf="@id/actv_amount"
+                    app:layout_constraintTop_toTopOf="@id/actv_amount"
+                    tools:text="10000" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/date_colon"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_amount_value" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_date_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:dateToString="@{model.createdDate}"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toEndOf="@id/actv_date"
+                    app:layout_constraintTop_toTopOf="@id/actv_date"
+                    tools:text="Jan 01" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_expiry_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/expiry_date_colon"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_date_value" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_expiry_date_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:dateToString="@{model.referralExpiryDate}"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toEndOf="@id/actv_expiry_date"
+                    app:layout_constraintTop_toTopOf="@id/actv_expiry_date"
+                    tools:text="Jan 01" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

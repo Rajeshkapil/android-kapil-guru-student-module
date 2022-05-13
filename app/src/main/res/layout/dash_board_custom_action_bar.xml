@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:background="@drawable/main_bg"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_kapilguru_logo"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/search_course"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:padding="8dp"
+        android:drawablePadding="15dp"
+        android:focusable="false"
+        android:drawableEnd="@drawable/ic_search"
+        android:textSize="12sp"
+        android:textColorHint="@color/blue"
+        android:hint="@string/what_do_you_want_to_learn"
+        android:background="@drawable/home_search_bg"
+        android:layout_gravity="center"
+        android:layout_weight="0.5"
+        android:textColor="@color/black"
+        android:visibility="gone"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/only_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textSize="20sp"
+        android:maxLines="1"
+        android:text="Kapil Guru Student sdjhfjdhfdfdfjdhfjhdjfhjdhfjj"
+        android:hint="@string/what_do_you_want_to_learn"
+        android:layout_gravity="center"
+        android:layout_weight="0.5"
+        android:ems="3"
+        android:ellipsize="end"
+        android:textColor="@color/white"
+        android:visibility="visible"/>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="0.1">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/aCImg_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/notification_icon"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_Count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="20dp" />
+    </RelativeLayout>
+
+
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/menu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="0.1"
+        android:paddingHorizontal="5dp"
+        android:src="@drawable/ic_menu_slider"/>
+
+</LinearLayout>

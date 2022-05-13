@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.kapilguru.student.demoLecture.demoLectureDetails.viewModel.DemoLectureDetailsViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/ll_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_bg"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/custom_action_bar"
+            layout="@layout/custom_action_bar_layout" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_image_bottom"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.28" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_video_above"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.17" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_video_below"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.35" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_video_start"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.04" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_video_end"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.37" />
+
+                <FrameLayout
+                    android:id="@+id/videoViewWrapper"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toTopOf="@id/gl_image_bottom"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0">
+
+<!--                    <VideoView-->
+<!--                        android:id="@+id/videoView"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_gravity="center"/>-->
+
+                    <com.google.android.exoplayer2.ui.PlayerView
+                        android:id="@+id/exoVideoView"
+                        android:layout_width="match_parent"
+                        app:show_buffering="when_playing"
+                        app:buffered_color="@color/orange_2"
+                        android:layout_height="match_parent"/>
+
+                </FrameLayout>
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/imageView_upper"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    android:background="@color/gold"-->
+<!--                    android:scaleType="fitXY"-->
+<!--                    android:visibility="gone"-->
+<!--                    loadGlideImage="@{viewModel.demoLectureDetailsApi.image}"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@id/gl_video_below"-->
+<!--                    app:layout_constraintEnd_toEndOf="@id/gl_video_end"-->
+<!--                    app:layout_constraintStart_toStartOf="@id/gl_video_start"-->
+<!--                    app:layout_constraintTop_toTopOf="@id/gl_video_above" />-->
+
+                <Button
+                    android:id="@+id/btn_go_live"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="18dp"
+                    android:layout_marginBottom="5dp"
+                    android:backgroundTint="@color/green_2"
+                    android:text="@string/go_live"
+                    android:visibility="gone"
+                    android:layout_gravity="end"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintBottom_toTopOf="@id/cv_details"
+                    app:layout_constraintTop_toBottomOf="@id/gl_image_bottom" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="8dp"
+                    android:background="@color/white"
+                    app:layout_constraintBottom_toTopOf="@id/emptyView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_go_live">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingHorizontal="14dp">
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/gl_start_date"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_begin="152dp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_lecture_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="25dp"
+                            android:fontFamily="@font/rubik_regular"
+                            android:text="@string/demo_lecture_title"
+                            android:textColor="@color/black"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_lecture_title_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/orange_heading_text_style"
+                            android:text="@{viewModel.demoLectureDetailsApi.title}"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/actv_lecture_title"
+                            tools:text="Android" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_speaker_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/rubik_regular"
+                            android:text="@string/speaker_name"
+                            android:textColor="@color/black"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/actv_lecture_title_value" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_speaker_name_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:text="@{viewModel.demoLectureDetailsApi.trainerName}"
+                            android:textColor="@color/purple"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/actv_speaker_name"
+                            tools:text="Nihar" />
+
+                        <View
+                            android:id="@+id/view_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="7dp"
+                            android:background="@color/grey_2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/actv_speaker_name_value" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/cl_start_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/view_1">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/actv_start_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/rubik_light"
+                                android:padding="4dp"
+                                android:text="@string/start_time"
+                                android:textColor="@color/black_2"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/actv_start_time_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/rubik_medium"
+                                android:padding="4dp"
+                                android:textColor="@color/purple"
+                                app:layout_constraintStart_toStartOf="@id/actv_start_time"
+                                app:layout_constraintTop_toBottomOf="@id/actv_start_time"
+                                app:timeToString="@{viewModel.demoLectureDetailsApi.lectureDate}"
+                                tools:text="5 : 30 pm" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/cl_start_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintStart_toStartOf="@id/gl_start_date"
+                            app:layout_constraintTop_toBottomOf="@id/view_1">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/actv_start_date"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/rubik_light"
+                                android:padding="4dp"
+                                android:text="@string/start_date"
+                                android:textColor="@color/black_2"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/actv_start_date_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/rubik_medium"
+                                android:padding="4dp"
+                                android:textColor="@color/purple"
+                                android:textSize="13sp"
+                                app:dateToString="@{viewModel.demoLectureDetailsApi.lectureDate}"
+                                app:layout_constraintStart_toStartOf="@id/actv_start_date"
+                                app:layout_constraintTop_toBottomOf="@id/actv_start_date"
+                                tools:text="Oct 30 2021" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/cl_duration"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/cl_start_time">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/actv_duration"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/rubik_light"
+                                android:padding="4dp"
+                                android:text="@string/duration"
+                                android:textColor="@color/black_2"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/actv_duration_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/rubik_medium"
+                                android:padding="4dp"
+                                android:textColor="@color/purple"
+                                android:textSize="13sp"
+                                app:layout_constraintStart_toStartOf="@id/actv_duration"
+                                app:layout_constraintTop_toBottomOf="@id/actv_duration"
+                                android:text="@{@string/duration_min(viewModel.demoLectureDetailsApi.duration)}"
+                                tools:text="30 min" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <View
+                            android:id="@+id/view_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="7dp"
+                            android:background="@color/grey_2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/cl_duration" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_languages"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="14dp"
+                            android:fontFamily="@font/rubik_regular"
+                            android:text="@string/languages"
+                            android:textColor="@color/black_2"
+                            android:textSize="11sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/view_2" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_languages_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:textColor="@color/black_2"
+                            android:textSize="14sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/actv_languages" />
+
+                        <View
+                            android:id="@+id/view_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="7dp"
+                            android:background="@color/grey_2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/actv_languages_value" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_about_us"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="6dp"
+                            android:fontFamily="@font/rubik_regular"
+                            android:text="@string/about_us"
+                            android:textColor="@color/black_2"
+                            android:textSize="11sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/view_3" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_about_us_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:textColor="@color/black_2"
+                            android:textSize="14sp"
+                            app:base64ToHtml="@{viewModel.demoLectureDetailsApi.about}"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/actv_about_us"
+                            tools:text="vfbahbvhbdsvlhbsdvlhbsldhvJHLSDvlhsdvjshdvljhdvlhsdhs,hjHvdjhvd,jhsvdjhsvdhvdslhbsdvlhdshvhldsvhdsvjhsvdlhjvdsldlyvlbhdslhvbldvlHVBLHJVBDLHblvbLHEWVJHV"/>
+
+                        <Button
+                            android:id="@+id/btn_register"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="12dp"
+                            android:backgroundTint="@color/yellow"
+                            android:text="@string/register"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/actv_about_us_value"
+                            app:layout_constraintBottom_toBottomOf="parent" />
+
+                        <Button
+                            android:id="@+id/btn_already_registered"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="12dp"
+                            android:backgroundTint="@color/yellow"
+                            android:text="@string/registered"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/actv_about_us_value"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:visibility="gone"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <View
+                    android:id="@+id/emptyView"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    app:layout_constraintTop_toBottomOf="@id/cv_details"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>
+

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/main_bg"
+        tools:context=".referandearn.myReferrals.MyReferralsListActivity">
+
+        <include
+            android:id="@+id/actionbar"
+            layout="@layout/custom_action_bar_layout"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/referral_amount_info"
+            android:textColor="@color/white"
+            android:layout_marginVertical="8dp"
+            android:layout_marginHorizontal="18dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_my_referrals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/my_referral_item" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_no_my_referrals"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/no_referrals"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</layout>

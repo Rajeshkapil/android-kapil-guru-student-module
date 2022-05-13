@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tv_follows_us"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/follow_us_on"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/iv_facebook"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_facebook"
+        android:layout_marginTop="30dp"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iv_twitter"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/facebook" />
+
+    <ImageView
+        android:id="@+id/iv_twitter"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_twitter"
+        app:layout_constraintStart_toEndOf="@+id/iv_facebook"
+        app:layout_constraintEnd_toStartOf="@+id/iv_instagram"
+        app:layout_constraintTop_toTopOf="@id/iv_facebook"
+        android:contentDescription="@string/twitter" />
+
+    <ImageView
+        android:id="@+id/iv_instagram"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_instagram"
+        app:layout_constraintStart_toEndOf="@+id/iv_twitter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/iv_facebook"
+        android:contentDescription="@string/instagram" />
+
+    <ImageView
+        android:id="@+id/iv_linked_in"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_linkedin"
+        android:layout_marginTop="16dp"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iv_youtube"
+        app:layout_constraintTop_toBottomOf="@+id/iv_facebook"
+        android:contentDescription="@string/linkedin" />
+
+    <ImageView
+        android:id="@+id/iv_youtube"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_youtube"
+        app:layout_constraintStart_toEndOf="@+id/iv_linked_in"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/iv_linked_in"
+        android:contentDescription="@string/youtube" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

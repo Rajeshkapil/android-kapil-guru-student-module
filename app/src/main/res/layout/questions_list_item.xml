@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.kapilguru.student.exam.questionPaper.viewModel.QuestionPaperViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_question"
+            style="@style/AppCardViewStyle_latest"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    tools:context=".exam.questionPaper.QuestionPaperActivity">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_question_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Q1/25" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_marks_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="5dp"
+                        android:fontFamily="@font/rubik_medium"
+                        android:textColor="@color/orange_2"
+                        app:intToCount="@{viewModel.currentQuestionAndOption.marks}"
+                        app:layout_constraintEnd_toStartOf="@+id/actv_marks"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="2" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_marks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:fontFamily="@font/rubik_medium"
+                        android:textColor="@color/purple"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:markOrMarks="@{viewModel.currentQuestionAndOption.marks}"
+                        tools:text="Marks" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_question"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:textColor="@color/red"
+                        app:base64ToHtml="@{viewModel.currentQuestionAndOption.question}"
+                        app:fontFamily="@font/rubik_bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/actv_question_no"
+                        tools:text="Sun raises in ?" />
+
+                    <RadioGroup
+                        android:id="@+id/rg_options"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/actv_question">
+
+                        <RadioButton
+                            android:id="@+id/rb_option_a"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/option_a"
+                            android:textColor="@color/purple" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_option_a_value"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/rectangle_stroke_grey"
+                            android:gravity="center_vertical"
+                            android:padding="4dp"
+                            app:base64ToHtml="@{viewModel.currentQuestionAndOption.opt1}"
+                            tools:text="East" />
+
+                        <RadioButton
+                            android:id="@+id/rb_option_b"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/option_b"
+                            android:textColor="@color/purple" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_option_b_value"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/rectangle_stroke_grey"
+                            android:gravity="center_vertical"
+                            android:padding="4dp"
+                            app:base64ToHtml="@{viewModel.currentQuestionAndOption.opt2}"
+                            tools:text="West" />
+
+                        <RadioButton
+                            android:id="@+id/rb_option_c"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/option_c"
+                            android:textColor="@color/purple" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_option_c_value"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/rectangle_stroke_grey"
+                            android:gravity="center_vertical"
+                            android:padding="4dp"
+                            app:base64ToHtml="@{viewModel.currentQuestionAndOption.opt3}"
+                            tools:text="West" />
+
+                        <RadioButton
+                            android:id="@+id/rb_option_d"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/option_d"
+                            android:textColor="@color/purple" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_option_d_value"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="8dp"
+                            android:background="@drawable/rectangle_stroke_grey"
+                            android:gravity="center_vertical"
+                            android:padding="4dp"
+                            app:base64ToHtml="@{viewModel.currentQuestionAndOption.opt4}"
+                            tools:text="West" />
+
+                    </RadioGroup>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.kapilguru.student.myClassroom.liveClasses.model.LiveUpComingClassData" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/studentDetails"
+        style="@style/AppCardViewStyle_latest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/top"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="10dp"
+                android:paddingTop="5dp">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/verticalHalfGuideLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.35" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_batch_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/disabled_grey_color"
+                    android:fontFamily="@font/rubik_medium"
+                    android:padding="5dp"
+                    android:text="@{@string/batch_code_hyphen(model.batchCode)}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sub_title_size"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="names insert" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvCourseTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="@{model.batchData.courseTitle}"
+                    android:textColor="@color/orange_2"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_batch_code"
+                    tools:text="Course Titile here " />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvTrainerName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="@font/rubik_regular"
+                    android:text="@{@string/trainer_colon_string(model.batchData.trainerName)}"
+                    android:textSize="@dimen/sub_title_size"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/tvCourseTitle"
+                    app:layout_constraintTop_toBottomOf="@id/tvCourseTitle"
+                    tools:text="Trainer: Hello whats " />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvTrainerId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="@font/rubik_regular"
+                    android:text="@{@string/trainer_id_colon_string(model.batchData.trainerId)}"
+                    android:textSize="@dimen/sub_title_size"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/tvTrainerName"
+                    app:layout_constraintTop_toBottomOf="@id/tvTrainerName"
+                    tools:text="Trainer Id : Hello whats " />
+
+                <View
+                    android:id="@+id/view_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/cream"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvTrainerId" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imageStartTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view_line"
+                    app:srcCompat="@drawable/wall_clock_icon" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_start_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/start_time"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sub_title_size"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/imageStartTime"
+                    app:layout_constraintTop_toBottomOf="@id/view_line" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_start_time_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/rubik_bold"
+                    android:textColor="@color/purple_2"
+                    android:textSize="@dimen/sub_title_size"
+                    app:layout_constraintEnd_toEndOf="@+id/actv_start_time"
+                    app:layout_constraintStart_toEndOf="@id/imageStartTime"
+                    app:layout_constraintTop_toBottomOf="@id/actv_start_time"
+                    app:timeToString="@{model.startTime}"
+                    tools:text="10:00 am" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imageStartDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="15dp"
+                    android:visibility="invisible"
+                    app:layout_constraintStart_toEndOf="@+id/actv_start_time"
+                    app:layout_constraintTop_toBottomOf="@+id/view_line"
+                    app:srcCompat="@drawable/calendar_icon" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvStartDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:text="@string/start_date_"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sub_title_size"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/imageStartDate"
+                    app:layout_constraintTop_toBottomOf="@id/view_line" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_next_class_date_value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:fontFamily="@font/rubik_bold"
+                    android:textColor="@color/purple_2"
+                    android:textSize="@dimen/sub_title_size"
+                    app:dateToString="@{model.startTime}"
+                    app:layout_constraintStart_toEndOf="@+id/imageStartDate"
+                    app:layout_constraintTop_toBottomOf="@id/tvStartDate"
+                    tools:text="20 jan 35" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/aCTVImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center"
+                    android:layout_marginVertical="8dp"
+                    android:src="@drawable/ic_forward"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.95"
+                    app:layout_constraintStart_toEndOf="@id/verticalHalfGuideLine"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/rectangle_curve_pink_2"
+                    android:backgroundTint="@color/green_2"
+                    android:paddingHorizontal="12dp"
+                    android:text="@string/go_live"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sub_title_size"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/actv_next_class_date_value"
+                    app:layout_constraintTop_toBottomOf="@+id/view_line"
+                    tools:text="TIME: 34:33:99" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="@color/black"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:weightSum="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintCircleRadius="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/top"
+                app:layout_constraintVertical_bias="0.1">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actvOverview"
+                    style="@style/MyclassRoomCardBottomTextStyle"
+                    android:text="@string/overview"
+                    tools:text="@string/overview" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/activeRecordings"
+                    style="@style/MyclassRoomCardBottomTextStyle"
+                    android:text="@string/recordings"
+                    tools:text="@string/recordings" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/activeStudyMaterial"
+                    style="@style/MyclassRoomCardBottomTextStyle"
+                    android:text="@string/study_material"
+                    tools:text="@string/study_material" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/activeExam"
+                    style="@style/MyclassRoomCardBottomTextStyle"
+                    android:text="@string/exam"
+                    tools:text="@string/exam" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+</layout>

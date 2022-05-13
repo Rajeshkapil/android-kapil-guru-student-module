@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="earningsModel"
+            type="com.kapilguru.student.wallet.EarningsViewModel"
+            />
+
+        <variable
+            name="clickListener"
+            type="com.kapilguru.student.wallet.EarningsActivity" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/actionbar"
+                layout="@layout/custom_action_bar_layout" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/history"
+                android:layout_width="wrap_content"
+                android:layout_gravity="end"
+                android:layout_margin="10dp"
+                android:layout_height="35dp"
+                android:background="@drawable/button_bg"
+                android:text="@string/history"/>
+
+            <com.kapilguru.student.wallet.EarningsMergerView
+                android:id="@+id/availableAmountView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                app:isRequestMoneyAvailable="@{true}"
+                app:earnings_type="0"
+                app:earnings_title="@string/available_amount"
+                app:courseAmount="@{earningsModel.earningsSummary.refundAmountAvailable}"
+                app:referralAmount="@{earningsModel.earningsSummary.referralAmountAvailable}"
+                app:webinarAmount="@{earningsModel.earningsSummary.prizesAmountAvailable}" />
+
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="3dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/parentCard"
+            style="@style/AppCardViewStyle_latest"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/subscription_card_bg"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.2"
+                        android:src="@drawable/ic_wallet" />
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_weight="0.7"
+                        android:orientation="vertical"
+                        android:weightSum="1">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/amount_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/available_amount"
+                            android:textColor="@color/orange_2"
+                            android:textSize="18sp"
+                            app:fontFamily="@font/montserrat_bold" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/amount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="2dp"
+                            android:textAllCaps="false"
+                            android:textColor="@color/blue_3"
+                            android:textSize="15sp"
+                            app:fontFamily="@font/rubik_medium" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/request_money"
+                            android:layout_width="wrap_content"
+                            android:layout_height="26dp"
+                            android:background="@drawable/button_bg"
+                            android:drawableEnd="@drawable/ic_right_arrow"
+                            android:drawablePadding="5dp"
+                            android:paddingHorizontal="5dp"
+                            android:visibility="visible"
+                            android:text="@string/request_money"
+                            android:textColor="@color/purple" />
+
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.1"
+                        android:src="@drawable/ic_arrow_down_24px"
+                        android:backgroundTint="@color/black"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/footer_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/light_blue"
+                    android:orientation="vertical"
+                    android:paddingBottom="20dp"
+                    android:visibility="visible"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="0.3"
+                            android:src="@drawable/course_amount_icon" />
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.7"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/refund_amount"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                app:fontFamily="@font/rubik_regular" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/course_amount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/purple"
+                                android:textSize="18sp"
+                                app:fontFamily="@font/rubik_regular" />
+
+
+                        </LinearLayout>
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/course_view_more"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="20dp"
+                            android:background="@drawable/solid_light_blue_stroke_blue"
+                            android:gravity="center"
+                            android:padding="2dp"
+                            android:text="@string/view_more"
+                            android:textColor="@color/purple"
+                            android:textSize="12sp"
+                            app:fontFamily="@font/rubik_medium" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="0.3"
+                            android:src="@drawable/course_amount_icon" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.7"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/referral_amount"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                app:fontFamily="@font/rubik_regular" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/referral_amount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/purple"
+                                android:textSize="18sp"
+                                app:fontFamily="@font/rubik_regular" />
+
+
+                        </LinearLayout>
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/referral_view_more"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="20dp"
+                            android:background="@drawable/solid_light_blue_stroke_blue"
+                            android:gravity="center"
+                            android:padding="2dp"
+                            android:text="@string/view_more"
+                            android:textColor="@color/purple"
+                            android:textSize="12sp"
+                            app:fontFamily="@font/rubik_medium" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="0.3"
+                            android:src="@drawable/course_amount_icon" />
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.7"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/prize_money"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                app:fontFamily="@font/rubik_regular" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/webinar_amount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/purple"
+                                android:textSize="18sp"
+                                app:fontFamily="@font/rubik_regular" />
+
+
+                        </LinearLayout>
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/webinar_view_more"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="20dp"
+                            android:background="@drawable/solid_light_blue_stroke_blue"
+                            android:gravity="center"
+                            android:padding="2dp"
+                            android:text="@string/view_more"
+                            android:textColor="@color/purple"
+                            android:textSize="12sp"
+                            app:fontFamily="@font/rubik_medium" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</merge>

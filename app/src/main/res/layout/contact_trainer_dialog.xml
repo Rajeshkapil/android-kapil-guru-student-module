@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical|center_horizontal"
+    android:padding="30dp"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contact Details"
+        android:gravity="start" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/trainer_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:gravity="start"
+        android:id="@+id/contact_trainer_number"
+        android:textColor="@color/blue"
+        android:text="+91 9292929292"/>
+
+</LinearLayout>

@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.kapilguru.student.webinar.webinarDetails.viewModel.WebinarDetailsViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/ll_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_bg"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/custom_action_bar"
+            layout="@layout/custom_action_bar_layout" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_image_bottom"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.18" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_video_above"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.17" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_video_below"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.35" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_video_start"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.04" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_video_end"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.37" />
+
+                <FrameLayout
+                    android:id="@+id/videoViewWrapper"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toTopOf="@id/gl_image_bottom"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0">
+
+                    <VideoView
+                        android:id="@+id/videoView"
+                        android:layout_width="match_parent"
+                        android:visibility="gone"
+                        android:layout_height="match_parent"/>
+
+                    <com.google.android.exoplayer2.ui.PlayerView
+                        android:id="@+id/exoVideoView"
+                        android:layout_width="match_parent"
+                        app:show_buffering="when_playing"
+                        app:buffered_color="@color/orange_2"
+                        android:layout_height="match_parent"/>
+
+                </FrameLayout>
+
+                <ImageView
+                    android:id="@+id/imageView_upper"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@color/gold"
+                    android:scaleType="fitXY"
+                    android:visibility="gone"
+                    loadGlideImage="@{viewModel.webinarDetailsApi.image}"
+                    app:layout_constraintBottom_toBottomOf="@id/gl_video_below"
+                    app:layout_constraintEnd_toEndOf="@id/gl_video_end"
+                    app:layout_constraintStart_toStartOf="@id/gl_video_start"
+                    app:layout_constraintTop_toTopOf="@id/gl_video_above" />
+
+                <Button
+                    android:id="@+id/btn_go_live"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="18dp"
+                    android:layout_marginBottom="5dp"
+                    android:backgroundTint="@color/green_2"
+                    android:text="@string/go_live"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/gl_image_bottom"
+                    android:visibility="gone"/>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cv_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_go_live">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_details"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingHorizontal="14dp">
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/gl_start_date"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.40" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_lecture_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="25dp"
+                            android:fontFamily="@font/rubik_regular"
+                            android:text="@string/webinar_title"
+                            android:textColor="@color/black"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_lecture_title_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:text="@{viewModel.webinarDetailsApi.title}"
+                            android:textColor="@color/orange_2"
+                            android:textSize="20sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/actv_lecture_title"
+                            tools:text="Android" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_speaker_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/rubik_regular"
+                            android:text="@string/speaker_name"
+                            android:textColor="@color/black"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/actv_lecture_title_value" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_speaker_name_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:text="@{viewModel.webinarDetailsApi.speakerName}"
+                            android:textColor="@color/purple"
+                            android:textSize="16sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/actv_speaker_name"
+                            tools:text="Nihar" />
+
+                        <View
+                            android:id="@+id/view_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="7dp"
+                            android:background="@color/grey_2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/actv_speaker_name_value" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/cl_start_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/view_1">
+
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/actv_start_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/rubik_light"
+                                android:padding="1dp"
+                                android:text="@string/start_time"
+                                android:textColor="@color/black_2"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/actv_start_time_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/rubik_medium"
+                                android:padding="1dp"
+                                android:textColor="@color/purple"
+                                app:layout_constraintStart_toStartOf="@id/actv_start_time"
+                                app:layout_constraintTop_toBottomOf="@id/actv_start_time"
+                                app:timeToString="@{viewModel.webinarDetailsApi.startDate}"
+                                tools:text="5 : 30 pm" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/cl_end_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintStart_toStartOf="@id/gl_start_date"
+                            app:layout_constraintTop_toBottomOf="@id/view_1">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/actv_end_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/rubik_light"
+                                android:padding="1dp"
+                                android:text="@string/end_time"
+                                android:textColor="@color/black_2"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/actv_end_time_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/rubik_medium"
+                                android:padding="1dp"
+                                android:textColor="@color/purple"
+                                app:timeToString="@{viewModel.webinarDetailsApi.endDate}"
+                                app:layout_constraintStart_toStartOf="@id/actv_end_time"
+                                app:layout_constraintTop_toBottomOf="@id/actv_end_time"
+                                tools:text="14:00" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/cl_start_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/cl_start_time">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/actv_start_date"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/rubik_light"
+                                android:padding="1dp"
+                                android:text="@string/start_date"
+                                android:textColor="@color/black_2"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/actv_start_date_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/rubik_medium"
+                                android:padding="1dp"
+                                android:textColor="@color/purple"
+                                app:dateToString="@{viewModel.webinarDetailsApi.startDate}"
+                                app:layout_constraintStart_toStartOf="@id/actv_start_date"
+                                app:layout_constraintTop_toBottomOf="@id/actv_start_date"
+                                tools:text="Oct 30 2021" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/cl_end_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintStart_toStartOf="@id/gl_start_date"
+                            app:layout_constraintTop_toTopOf="@id/cl_start_date">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/aciv_end_date"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:visibility="gone"
+                                android:src="@drawable/calendar_icon"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/actv_end_date"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/rubik_light"
+                                android:padding="1dp"
+                                android:text="@string/end_date"
+                                android:textColor="@color/black_2"
+                                app:layout_constraintStart_toEndOf="@id/aciv_end_date"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/actv_end_date_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/rubik_medium"
+                                android:padding="1dp"
+                                android:textColor="@color/purple"
+                                app:dateToString="@{viewModel.webinarDetailsApi.endDate}"
+                                app:layout_constraintStart_toStartOf="@id/actv_end_date"
+                                app:layout_constraintTop_toBottomOf="@id/actv_end_date"
+                                tools:text="Oct 30 2021" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/cl_duration"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/cl_start_date">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/actv_duration"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/rubik_light"
+                                android:padding="1dp"
+                                android:text="@string/duration"
+                                android:textColor="@color/black_2"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/actv_duration_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/rubik_medium"
+                                android:padding="1dp"
+                                android:textColor="@color/purple"
+                                app:sessionsInDays="@{viewModel.webinarDetailsApi.durationDays}"
+                                app:layout_constraintStart_toStartOf="@id/actv_duration"
+                                app:layout_constraintTop_toBottomOf="@id/actv_duration"
+                                tools:text="4 Days" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/cl_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            app:layout_constraintStart_toStartOf="@id/gl_start_date"
+                            app:layout_constraintTop_toBottomOf="@id/cl_start_date">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/actv_price"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/rubik_light"
+                                android:padding="1dp"
+                                android:text="@string/amount"
+                                android:textColor="@color/black_2"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/actv_price_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/rubik_medium"
+                                android:padding="1dp"
+                                android:textColor="@color/orange_2"
+                                app:amountInRupees="@{viewModel.webinarDetailsApi.price}"
+                                app:layout_constraintStart_toStartOf="@id/actv_price"
+                                app:layout_constraintTop_toBottomOf="@id/actv_price"
+                                tools:text="4 Days" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <View
+                            android:id="@+id/view_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="7dp"
+                            android:background="@color/grey_2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/cl_duration" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_languages"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="14dp"
+                            android:fontFamily="@font/rubik_regular"
+                            android:text="@string/languages"
+                            android:textColor="@color/black_2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/view_2" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_languages_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:textColor="@color/black_2"
+                            android:textSize="14sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/actv_languages" />
+
+                        <View
+                            android:id="@+id/view_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="7dp"
+                            android:background="@color/grey_2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/actv_languages_value" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_about_us"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:fontFamily="@font/rubik_regular"
+                            android:text="@string/about_us"
+                            android:textColor="@color/black_2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/view_3" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_about_us_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:textColor="@color/black_2"
+                            app:base64ToHtml="@{viewModel.webinarDetailsApi.about}"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/actv_about_us"
+                            tools:text="sjdnvlsbdnvlbavbaevnauvbnhbxvuebrvuybovuouvurvbouetbvourbtvnowuytbvcnubvyugtblhbocngqrg"/>
+
+                        <Button
+                            android:id="@+id/btn_register"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="12dp"
+                            android:backgroundTint="@color/yellow"
+                            android:text="@string/register"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/actv_about_us_value"
+                            app:layout_constraintBottom_toBottomOf="parent" />
+
+                        <Button
+                            android:id="@+id/btn_already_registered"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="12dp"
+                            android:backgroundTint="@color/yellow"
+                            android:text="@string/registered"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/actv_about_us_value"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:visibility="gone"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>
+

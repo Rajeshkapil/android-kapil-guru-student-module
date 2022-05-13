@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="model"
+            type="com.kapilguru.student.homeActivity.models.AllDemosApi" />
+    </data>
+
+
+<!--<androidx.cardview.widget.CardView-->
+<!--    android:id="@+id/card"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    style="@style/AppCardViewStyle_simple">-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical">-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:scaleType="fitXY"-->
+<!--            app:loadGlideImage="@{model.image}"-->
+<!--            android:src="@drawable/default_image" />-->
+
+<!--        <androidx.appcompat.widget.AppCompatTextView-->
+<!--            style="@style/orange_heading_text_style"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="@dimen/five_dp"-->
+<!--            android:minLines="2"-->
+<!--            android:maxLines="2"-->
+<!--            android:text="@{model.title}"-->
+<!--            tools:text="YOGA" />-->
+
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/blue_white_solid_bg">-->
+
+
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
+<!--                android:id="@+id/date"-->
+<!--                android:layout_marginStart="@dimen/five_dp"-->
+<!--                style="@style/value_text_style"-->
+<!--                android:layout_marginBottom="4dp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                app:dateToString="@{model.lectureDate}"-->
+<!--                tools:text="abc check wow" />-->
+
+<!--            <androidx.appcompat.widget.AppCompatTextView-->
+<!--                android:id="@+id/time"-->
+<!--                style="@style/value_text_style"-->
+<!--                android:layout_marginStart="@dimen/five_dp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@id/date"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                app:timeToString="@{model.lectureDate}"-->
+<!--                tools:text="abc check" />-->
+
+
+<!--&lt;!&ndash;            <View&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="60dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="60dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_marginEnd="5dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_alignParentEnd="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:background="@drawable/blue_circle"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:textAlignment="center" />&ndash;&gt;-->
+
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="60dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:layout_marginEnd="5dp"-->
+<!--                android:gravity="center"-->
+<!--                android:background="@drawable/blue_circle"-->
+<!--                android:orientation="vertical">-->
+
+<!--                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                    android:id="@+id/hours"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:gravity="center"-->
+<!--                    app:intToString="@{model.duration}"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="22sp"-->
+<!--                    tools:text="3" />-->
+
+<!--                <androidx.appcompat.widget.AppCompatTextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Min"-->
+<!--                    android:fontFamily="@font/poppins_medium"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="12sp"-->
+<!--                    tools:text="Min" />-->
+
+<!--            </LinearLayout>-->
+
+<!--        </RelativeLayout>-->
+
+<!--        <androidx.appcompat.widget.AppCompatTextView-->
+<!--            android:id="@+id/language"-->
+<!--            style="@style/medium_text_style"-->
+<!--            android:text="@{model.languagesTextToShow}"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="27dp"-->
+<!--            android:layout_marginStart="@dimen/five_dp"-->
+<!--            tools:text="abc cfdvbzfdvheck" />-->
+
+<!--        <androidx.appcompat.widget.AppCompatTextView-->
+<!--            android:layout_marginStart="@dimen/five_dp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="12sp"-->
+<!--            android:text="@{model.trainerName}"-->
+<!--            tools:text="abc check" />-->
+
+
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:id="@+id/btn_know_more"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:layout_gravity="end"-->
+<!--            android:layout_marginEnd="5dp"-->
+<!--            android:backgroundTint="@color/light_blue"-->
+<!--            android:text="@string/know_more"-->
+<!--            android:padding="0dp"-->
+<!--            android:textColor="@color/blue_3"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:textSize="12sp"-->
+<!--            app:cornerRadius="12dp"-->
+<!--            app:strokeColor="@color/blue"-->
+<!--            app:strokeWidth="1dp" />-->
+
+
+<!--    </LinearLayout>-->
+
+<!--</androidx.cardview.widget.CardView>-->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        style="@style/AppCardViewStyle_simple"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/img_profile_pic"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginEnd="5dp"
+                    android:elevation="12dp"
+                    android:thicknessRatio="1.9"
+                    app:layout_constraintEnd_toStartOf="@id/title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/img_profile_pic_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:padding="5dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/default_image"
+                        app:loadGlideImage="@{model.image}" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/title"
+                    style="@style/orange_heading_text_style"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{model.title}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/img_profile_pic"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="samplsdfdfedfgfdgfgfgfgfgfgfg1234567890" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/trainer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:text="@{@string/by(model.trainerName)}"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/startDate"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/img_profile_pic"
+                    app:layout_constraintTop_toBottomOf="@+id/title"
+                    tools:text="by abck aname" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/startDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="2dp"
+                    android:layout_marginStart="5dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:dateToString="@{model.lectureDate}"
+                    app:layout_constraintBottom_toTopOf="@+id/startTime"
+                    app:layout_constraintEnd_toStartOf="@+id/dash"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@id/img_profile_pic"
+                    app:layout_constraintTop_toBottomOf="@id/trainer"
+                    tools:text="sdjfhdjkfhjdf" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/dash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_marginVertical="2dp"
+                    android:text="-"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/endDate"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@id/startDate"
+                    app:layout_constraintTop_toBottomOf="@id/trainer"
+                    tools:text="-" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/endDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="2dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:dateToString="@{model.endDate}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@id/dash"
+                    app:layout_constraintTop_toBottomOf="@id/trainer"
+                    tools:text="sdjfhdjkfhjdf" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/startTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="2dp"
+                    android:layout_marginStart="5dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/time_dash"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@id/img_profile_pic"
+                    app:layout_constraintTop_toBottomOf="@id/startDate"
+                    app:timeToString="@{model.lectureDate}"
+                    tools:text="sdjfhdjkfhjdf" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/time_dash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_marginVertical="2dp"
+                    android:text=" to "
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/endTime"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@id/startTime"
+                    app:layout_constraintTop_toBottomOf="@id/startDate"
+                    tools:text=" to " />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/endTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="2dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@id/time_dash"
+                    app:layout_constraintTop_toBottomOf="@id/startDate"
+                    app:timeToString="@{model.endDate}"
+                    tools:text="sdjfhdjkfhjdf" />
+
+                <!--            <LinearLayout-->
+                <!--                android:layout_width="60dp"-->
+                <!--                android:layout_height="60dp"-->
+                <!--                android:layout_alignParentEnd="true"-->
+                <!--                android:layout_marginTop="5dp"-->
+                <!--                android:layout_marginEnd="5dp"-->
+                <!--                android:gravity="center"-->
+                <!--                android:background="@drawable/blue_circle"-->
+                <!--                android:orientation="vertical">-->
+
+                <!--                <androidx.appcompat.widget.AppCompatTextView-->
+                <!--                    android:id="@+id/hours"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:gravity="center"-->
+                <!--                    app:intToString="@{model.durationHrs}"-->
+                <!--                    android:textColor="@color/white"-->
+                <!--                    android:textSize="22sp"-->
+                <!--                    tools:text="3" />-->
+
+                <!--                <androidx.appcompat.widget.AppCompatTextView-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:text="Days"-->
+                <!--                    android:fontFamily="@font/poppins_medium"-->
+                <!--                    android:textColor="@color/white"-->
+                <!--                    android:textSize="12sp"-->
+                <!--                    tools:text="Days" />-->
+
+                <!--            </LinearLayout>-->
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/smoke_white">
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_horizontal_03"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.3" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_horizontal_06"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.6" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_horizontal_068"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.68" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_horizontal_09"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9" />
+
+
+                <com.kapilguru.student.customUI.KeyValueText
+                    android:id="@+id/courseDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/five_dp"
+                    app:barrierAllowsGoneWidgets="true"
+                    app:keyValueCourseDuaration="@{model.noOfDays}"
+                    app:key_title="@string/duration"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+
+                <ImageView
+                    android:id="@+id/share_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/share"
+                    android:text="@string/view_more"
+                    android:layout_marginEnd="5dp"
+                    app:layout_constraintStart_toEndOf="@id/guideline_horizontal_068"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/language"
+                    style="@style/medium_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/five_dp"
+                    android:text="@{model.languagesTextToShow}"
+                    tools:text="abc cfdvbzfdvheck"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/guideline_horizontal_068"
+                    app:layout_constraintTop_toBottomOf="@id/courseDuration"/>
+
+                <Button
+                    android:id="@+id/btn_know_more"
+                    style="@style/ButtonLogin"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/view_more"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toEndOf="@id/guideline_horizontal_068"
+                    app:layout_constraintTop_toBottomOf="@id/courseDuration" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

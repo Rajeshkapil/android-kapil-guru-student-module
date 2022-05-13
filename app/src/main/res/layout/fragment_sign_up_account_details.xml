@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.kapilguru.student.signup.viewModel.SignUpViewModel" />
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/signup_bg">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_vertical_7"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.07" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_vertical_93"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.93" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/aciv_back"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_back"
+                android:tint="@color/grey"
+                app:layout_constraintStart_toStartOf="@id/gl_vertical_7"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="48dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_full_name"
+                style="@style/MyAppDenseOutlined"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:helperTextTextColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@id/gl_vertical_93"
+                app:layout_constraintStart_toStartOf="@id/gl_vertical_7"
+                app:layout_constraintTop_toBottomOf="@id/aciv_back">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tiet_full_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@null"
+                    android:hint="@string/full_name_man"
+                    android:inputType="text"
+                    android:maxLength="100"
+                    android:text="@={viewModel.registerRequest.name}"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_email"
+                style="@style/MyAppDenseOutlined"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:helperTextTextColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/gl_vertical_93"
+                app:layout_constraintStart_toStartOf="@id/gl_vertical_7"
+                app:layout_constraintTop_toBottomOf="@id/til_full_name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tiet_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@null"
+                    android:hint="@string/hint_email"
+                    android:inputType="textEmailAddress"
+                    android:maxLength="100"
+                    android:text="@={viewModel.validateMailRequest.emailId}"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Spinner
+                android:id="@+id/spinner_country_code"
+                android:layout_width="100dp"
+                android:layout_height="36dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/spinner_bg"
+                android:drawSelectorOnTop="true"
+                android:minHeight="25dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:spinnerMode="dropdown"
+                android:translationZ="10dp"
+                app:layout_constraintStart_toStartOf="@id/til_email"
+                app:layout_constraintTop_toBottomOf="@id/til_email" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_mobile_no"
+                style="@style/MyAppDenseOutlined"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                app:helperTextTextColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@id/gl_vertical_93"
+                app:layout_constraintStart_toEndOf="@id/spinner_country_code"
+                app:layout_constraintTop_toBottomOf="@+id/til_email">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tiet_mobile_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@null"
+                    android:hint="@string/mobile_number"
+                    android:inputType="phone"
+                    android:maxLength="10"
+                    android:text="@={viewModel.validateMobileRequest.contactNo}"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <CheckBox
+                android:id="@+id/checkbox_terms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@={viewModel.isTermsChecked()}"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="@+id/actv_terms_and_cond"
+                app:layout_constraintStart_toStartOf="@id/gl_vertical_7"
+                app:layout_constraintTop_toTopOf="@+id/actv_terms_and_cond" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/actv_terms_and_cond"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="15dp"
+                android:text="@string/signup_trems"
+                app:layout_constraintEnd_toEndOf="@id/gl_vertical_93"
+                app:layout_constraintStart_toEndOf="@+id/checkbox_terms"
+                app:layout_constraintTop_toBottomOf="@id/til_mobile_no" />
+
+            <Button
+                android:id="@+id/button_signup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="35dp"
+                android:backgroundTint="@color/blue"
+                android:enabled="true"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/signup_label"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@id/gl_vertical_93"
+                app:layout_constraintStart_toStartOf="@id/gl_vertical_7"
+                app:layout_constraintTop_toBottomOf="@id/actv_terms_and_cond" />
+
+            <LinearLayout
+                android:id="@+id/ll_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="60dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/gl_vertical_93"
+                app:layout_constraintStart_toStartOf="@id/gl_vertical_7">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_have_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/have_account"
+                    android:textColor="@color/purple_2"
+                    android:textSize="16sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_have_acount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/login"
+                    android:textColor="@color/blue_3"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </FrameLayout>
+</layout>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="model"
+            type="com.kapilguru.student.webinar.model.OnGoingWebinar" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/AppCardViewStyle_simple"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="5dp"
+                android:paddingVertical="5dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/aciv_webinar_image"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    loadGlideImage="@{model.image}"
+                    android:scaleType="fitXY"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/aciv_share_icon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:padding="5dp"
+                    android:src="@drawable/share"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/actv_title_value"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/aciv_arrow"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_forward"
+                    android:tint="@color/grey"
+                    android:layout_marginStart="5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/orange_heading_text_style"
+                    android:id="@+id/actv_title_value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{model.webinarTitle}"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toEndOf="@id/aciv_webinar_image"
+                    app:layout_constraintEnd_toStartOf="@+id/aciv_share_icon"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="ANDROID"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/key_text_style"
+                    android:id="@+id/actv_speaker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/speaker_colon"
+                    app:layout_constraintStart_toStartOf="@id/actv_title_value"
+                    app:layout_constraintTop_toBottomOf="@id/actv_title_value"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/value_text_style"
+                    android:id="@+id/actv_speaker_value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{model.trainerName}"
+                    android:textColor="@color/blue_3"
+                    app:layout_constraintStart_toEndOf="@id/actv_speaker"
+                    app:layout_constraintEnd_toStartOf="@+id/aciv_share_icon"
+                    app:layout_constraintTop_toTopOf="@id/actv_speaker"
+                    tools:text="Elon Musk"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/key_text_style"
+                    android:id="@+id/actv_trainer_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/webinar_code_hypen"
+                    app:layout_constraintStart_toStartOf="@id/actv_title_value"
+                    app:layout_constraintTop_toBottomOf="@id/actv_speaker_value"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/value_text_style"
+                    android:id="@+id/actv_trainer_id_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{model.webinarCode}"
+                    android:textColor="@color/blue_3"
+                    app:layout_constraintStart_toEndOf="@id/actv_trainer_id"
+                    app:layout_constraintTop_toTopOf="@id/actv_trainer_id"
+                    tools:text="AXUdvjnv"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/btn_go_live"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/go_live"
+                    app:layout_constraintStart_toStartOf="@id/actv_title_value"
+                    app:layout_constraintTop_toBottomOf="@id/actv_trainer_id"
+                    android:paddingVertical="5dp"
+                    android:paddingHorizontal="10dp"
+                    android:background="@drawable/rect_small_curve"
+                    android:backgroundTint="@color/green_2"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppins_medium"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

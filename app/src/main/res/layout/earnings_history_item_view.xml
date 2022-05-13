@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.kapilguru.student.wallet.history.model.EarningsHistoryResponse" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="handler"
+            type="com.kapilguru.student.wallet.history.EarningsDetailsHistoryAdapter" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="paymentDetails"
+            type="com.kapilguru.student.wallet.history.model.PaidBankDetails" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/studentDetails"
+        style="@style/AppCardViewStyle_latest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/aCTVImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center"
+                android:layout_marginHorizontal="8dp"
+                android:src="@{model.shouldShow? @drawable/ic_baseline_keyboard_arrow_up_18: @drawable/ic_baseline_keyboard_arrow_down_24  }"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.9"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/aCTVImageView"
+                app:layout_constraintVertical_bias="0.1">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guidelineVertical_50"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guidelineVertical_0_05"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.05" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guidelineVertical_0_95"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.95" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guidelineVertical_0_78"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.78" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guidelineVertical_0_74"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.65" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guidelineVertical_0_35"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.30" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/apCTVStudentNameText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/rubik_regular"
+                    android:text="@string/request_amount"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toTopOf="@id/apCTVStudentNameValue"
+                    app:layout_constraintEnd_toStartOf="@id/guidelineVertical_50"
+                    app:layout_constraintHorizontal_bias="0.2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.2" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/apCTVStudentNameValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/rubik_medium"
+                    android:padding="1dp"
+                    android:textColor="@color/blue_3"
+                    android:textSize="14sp"
+                    app:amountInRupees="@{model.payableAmount}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/apCTVStudentNameText"
+                    tools:text="@string/student_name" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/apCTVStudentIdText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/grey_2"
+                    android:fontFamily="@font/rubik_regular"
+                    android:padding="5dp"
+                    android:text="@{@string/request_id_hyphen(model.id)}"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/apCTVStudentNameText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Request ID 123456" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/apCTVBatchIdText_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/rubik_regular"
+                    android:text="@string/date"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintHorizontal_bias="0.2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/apCTVStudentIdText" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/apCTVBatchIdValue_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="3dp"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintHorizontal_bias="0.2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/apCTVBatchIdText_1"
+                    app:dateToString="@{model.createdDate}"
+                    tools:text="01234" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/apCTVBatchTimeText_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/rubik_regular"
+                    android:text="@string/time"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintHorizontal_bias="0.2"
+                    app:layout_constraintStart_toStartOf="@id/guidelineVertical_0_35"
+                    app:layout_constraintTop_toBottomOf="@id/apCTVStudentIdText" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/apCTVBatchTimeValue_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="3dp"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toStartOf="@id/guidelineVertical_0_78"
+                    app:layout_constraintHorizontal_bias="0.2"
+                    app:layout_constraintStart_toStartOf="@id/guidelineVertical_0_35"
+                    app:layout_constraintTop_toBottomOf="@id/apCTVBatchTimeText_1"
+                    app:timeToString="@{model.createdDate}"
+                    tools:text="10:10 am" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/apCTVStartDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/rubik_regular"
+                    android:text="@string/status"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintHorizontal_bias="0.2"
+                    app:layout_constraintStart_toStartOf="@id/guidelineVertical_0_74"
+                    app:layout_constraintTop_toBottomOf="@id/apCTVStudentIdText" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/apCTVStartDateValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="3dp"
+                    android:text="@{model.status}"
+                    android:textColor="@color/orange_2"
+                    android:textSize="15sp"
+                    app:fontFamily="@font/rubik_medium"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="@id/guidelineVertical_0_74"
+                    app:layout_constraintTop_toBottomOf="@id/apCTVStartDate"
+                    tools:text="2021-Jul-01" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@color/light_blue"
+                android:orientation="vertical"
+                android:visibility="@{model.shouldShow? View.VISIBLE: View.GONE}"
+                app:layout_constraintTop_toBottomOf="@id/main">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/light_blue"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="8dp"
+                        android:weightSum="1">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.4"
+                            android:text="@string/refund_amount"
+                            tools:text="@string/refund_amount" />
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.3"
+                            android:textColor="@color/purple"
+                            app:amountInRupees="@{model.refundsAmount}"
+                            tools:text="10000" />
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/course_view_more"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.3"
+                            android:background="@drawable/solid_light_blue_stroke_blue"
+                            android:gravity="center"
+                            android:padding="2dp"
+                            android:text="@string/view_more"
+                            android:textColor="@color/purple"
+                            android:textSize="12sp"
+                            app:fontFamily="@font/rubik_medium" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="8dp"
+                        android:weightSum="1">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.4"
+                            android:text="@string/referral_amount"
+                            tools:text="@string/referral_amount" />
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.3"
+                            android:textColor="@color/purple"
+                            app:amountInRupees="@{model.referralsAmount}"
+                            tools:text="10000" />
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/referral_view_more"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.3"
+                            android:background="@drawable/solid_light_blue_stroke_blue"
+                            android:gravity="center"
+                            android:padding="2dp"
+                            android:text="@string/view_more"
+                            android:textColor="@color/purple"
+                            android:textSize="12sp"
+                            app:fontFamily="@font/rubik_medium" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:padding="8dp"
+                        android:weightSum="1">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.4"
+                            android:text="@string/price_amount"
+                            tools:text="@string/price_amount" />
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.3"
+                            android:textColor="@color/purple"
+                            app:amountInRupees="@{model.prizesAmount}"
+                            tools:text="10000" />
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/webinar_view_more"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.3"
+                            android:background="@drawable/solid_light_blue_stroke_blue"
+                            android:gravity="center"
+                            android:padding="2dp"
+                            android:text="@string/view_more"
+                            android:textColor="@color/purple"
+                            android:textSize="12sp"
+                            app:fontFamily="@font/rubik_medium" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rectangle_red_selection_bg"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/account_details"
+                            android:textColor="@color/orange_2"
+                            app:fontFamily="@font/rubik_medium" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/account"
+                            android:textColor="@color/black"
+                            app:fontFamily="@font/rubik_regular" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{paymentDetails.accountName}"
+                            android:textColor="@color/purple"
+                            app:fontFamily="@font/rubik_regular"
+                            tools:text="Nihar" />
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/account_number"
+                            android:textColor="@color/black"
+                            app:fontFamily="@font/rubik_regular" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{paymentDetails.accountNumber}"
+                            android:textColor="@color/purple"
+                            app:fontFamily="@font/rubik_regular"
+                            tools:text="Nihar" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.3"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/bank"
+                                    android:textColor="@color/black"
+                                    app:fontFamily="@font/rubik_regular" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="@{paymentDetails.bankName}"
+                                    android:textColor="@color/purple"
+                                    app:fontFamily="@font/rubik_regular"
+                                    tools:text="ICIC BANk" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.4"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/branch"
+                                    android:textColor="@color/black"
+                                    app:fontFamily="@font/rubik_regular" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="@{paymentDetails.branchName}"
+                                    android:textColor="@color/purple"
+                                    app:fontFamily="@font/rubik_regular"
+                                    tools:text="Financial District" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.3"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/ifsc_code"
+                                    android:textColor="@color/black"
+                                    app:fontFamily="@font/rubik_regular" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="@{paymentDetails.ifscCode}"
+                                    android:textColor="@color/purple"
+                                    app:fontFamily="@font/rubik_regular"
+                                    tools:text="#2E286E" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.3"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/paid_date"
+                                    android:textColor="@color/black"
+                                    app:fontFamily="@font/rubik_regular" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="@string/account"
+                                    android:textColor="@color/purple"
+                                    app:fontFamily="@font/rubik_regular"
+                                    tools:text="#2E286E" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.3"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/paid_amount"
+                                    android:textColor="@color/black"
+                                    app:fontFamily="@font/rubik_regular" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    app:amountInRupees="@{paymentDetails.paidAmount}"
+                                    android:textColor="@color/orange_2"
+                                    app:fontFamily="@font/rubik_regular"
+                                    tools:text="#2E286E" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/remark"
+                            android:textColor="@color/black" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{paymentDetails.remarks}"
+                            android:textColor="@color/black"
+                            tools:text="sjkdfskdfghdsgfhsdfhjkdhjkhdg" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

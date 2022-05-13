@@ -1,0 +1,327 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.KapilStudent" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="onboard" parent="@style/Theme.MaterialComponents.Light.NoActionBar">
+    <item name="android:actionMenuTextColor">@color/white</item>
+    </style>
+
+
+    <style name="circularImageSize50percentage" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="circularImageSize80percentage" parent="">
+        <item name="cornerSize">80%</item>
+    </style>
+
+    <!--new-->
+    <style name="ButtonLogin" parent="Widget.AppCompat.Button">
+        <item name="backgroundTint">#062D4B</item>
+        <item name="android:translationZ">5dp</item>
+    </style>
+
+    <style name="customParentNoActionBarStyle" parent="Theme.MaterialComponents.Light.NoActionBar" >
+
+    </style>
+
+    <style name="MyAppDenseOutlined" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="materialThemeOverlay">@style/MyThemeOverlayOutlinedDense</item>
+        <item name="helperTextTextColor">@android:color/black</item>
+        <item name="helperTextEnabled">true</item>
+        <item name="maxLines">1</item>
+        <item name="singleLine">true</item>
+    </style>
+
+    <style name="MyThemeOverlayOutlinedDense">
+        <item name="editTextStyle">@style/MyTextInputEditText_outlinedBox_dense_h
+        </item>
+    </style>
+
+    <style name="MyTextInputEditText_outlinedBox_dense_h" parent="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense">
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:drawableEnd">@drawable/ic_baseline_info_24</item>
+    </style>
+
+    <!--new-->
+    <style name="EditTextLogin" parent="Widget.AppCompat.EditText">
+        <item name="backgroundTint">@color/blue</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/blue_2</item>
+        <item name="android:textAppearance">@font/poppins_regular</item>
+        <item name="hintTextAppearance">@font/poppins_regular</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="MyAppEditTextViewStyle_new" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
+        <item name="helperTextEnabled">true</item>
+        <item name="maxLines">1</item>
+        <item name="singleLine">true</item>
+        <item name="boxBackgroundColor">#FFFFFF</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="strokeColor">#FFFFFF</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="hintTextAppearance">@style/TextLabel</item>
+        <item name="hintTextColor">#CCCCCC</item>
+        <item name="boxCornerRadiusBottomEnd">4dp</item>
+        <item name="boxCornerRadiusBottomStart">4dp</item>
+        <item name="boxCornerRadiusTopEnd">4dp</item>
+        <item name="boxCornerRadiusTopStart">4dp</item>
+        <item name="materialThemeOverlay">@style/MyThemeOverlayOutlinedDense_1</item>
+        <item name="android:textColorHint">#77787B</item>
+    </style>
+
+    <style name="TextLabel" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="MyThemeOverlayOutlinedDense_1">
+        <item name="editTextStyle">@style/MyTextInputEditText_outlinedBox_dense_h_1</item>
+    </style>
+
+    <style name="MyTextInputEditText_outlinedBox_dense_h_1" parent="@style/Widget.MaterialComponents.TextInputEditText.FilledBox.Dense">
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:textColor">@color/blue_3</item>
+        <item name="android:drawableEnd">@drawable/ic_baseline_info_24</item>
+    </style>
+
+    <style name="AppCardViewStyle_latest" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:outlineProvider">background</item>
+        <item name="android:padding">4dp</item>
+        <item name="cardCornerRadius">8dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="cardMaxElevation">4dp</item>
+        <item name="cardPreventCornerOverlap">true</item>
+    </style>
+
+    <style name="AppCardViewStyle_DashBoard" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_marginLeft">3dp</item>
+        <item name="android:layout_marginRight">3dp</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:outlineProvider">background</item>
+        <item name="android:padding">4dp</item>
+        <item name="cardCornerRadius">8dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="cardMaxElevation">4dp</item>
+        <item name="cardPreventCornerOverlap">true</item>
+    </style>
+
+    <style name="AppCardViewStyle_corner_4" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:layout_marginRight">4dp</item>
+        <item name="android:outlineProvider">background</item>
+        <item name="android:padding">4dp</item>
+        <item name="cardCornerRadius">4dp</item>
+        <item name="cardElevation">8dp</item>
+        <item name="cardMaxElevation">8dp</item>
+        <item name="cardPreventCornerOverlap">true</item>
+    </style>
+
+    <style name="AppCardViewStyle_latest_no_padding" parent="Widget.MaterialComponents.CardView">
+        <item name="android:outlineProvider">background</item>
+        <item name="cardCornerRadius">8dp</item>
+        <item name="cardElevation">8dp</item>
+        <item name="cardMaxElevation">8dp</item>
+        <item name="cardPreventCornerOverlap">false</item>
+    </style>
+
+    <style name="AppCardViewStyleGrid" parent="Widget.MaterialComponents.CardView">
+        <item name="android:outlineProvider">background</item>
+        <item name="cardCornerRadius">10dp</item>
+        <item name="cardElevation">@dimen/app_card_elevation</item>
+        <item name="cardPreventCornerOverlap">true</item>
+        <item name="cardUseCompatPadding">true</item>
+    </style>
+
+    <style name="AppCardViewStyle_simple" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">8dp</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:layout_marginBottom">6dp</item>
+        <item name="android:layout_marginStart">4dp</item>
+        <item name="android:layout_marginEnd">4dp</item>
+    </style>
+
+    <style name="AppCardViewStyle" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:outlineProvider">background</item>
+        <item name="android:padding">5dp</item>
+        <item name="cornerRadius">10dp</item>
+        <item name="cardElevation">@dimen/app_card_elevation</item>
+    </style>
+
+    <style name="grey_heading_text_style" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="white_heading_text_style" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="orange_heading_text_style" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/orange</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="white_heading_text_style_poppins_bold" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="black_heading_text_style_poppins_bold" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="white_heading_text_style_poppins_medium" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="black_heading_text_style_poppins_medium" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="key_text_style" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="value_text_style" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="medium_text_style" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="regular_text_style" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog" />
+
+    <style name="BaseBottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="bottomSheetStyle">@style/BottomSheet</item>
+    </style>
+
+    <style name="BottomSheet" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bottomsheetstyle</item>
+    </style>
+
+    <style name="my_class_room_classDay" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">16dp</item>
+        <item name="android:layout_height">16dp</item>
+        <item name="fontFamily">@font/rubik_bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">3dp</item>
+    </style>
+
+    <style name="MyclassRoomCardBottomTextStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:padding">5dp</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:layout_weight">0.25</item>
+        <item name="android:textColor">@color/grey_2</item>
+    </style>
+
+    <style name="MyclassRoomOverViewTextStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">9sp</item>
+        <item name="android:padding">4dp</item>
+        <item name="fontFamily">@font/rubik_regular</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="MyclassRoomOverViewValuesTextStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:padding">4dp</item>
+        <item name="fontFamily">@font/rubik_bold</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:textColor">@color/purple</item>
+    </style>
+
+
+    <style name="CustomSpinnerTheme" parent="Widget.AppCompat.Light.DropDownItem.Spinner">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:backgroundTint">@color/black</item>
+
+    </style>
+
+    <style name="Theme.KapilStudent.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.KapilStudent.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.KapilStudent.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="ExamBatchStudentListTextStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:padding">3dp</item>
+    </style>
+
+    <style name="menu_text_style" parent="@android:style/TextAppearance.DeviceDefault.Widget.ActionBar.Menu">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="BottomNavigationView" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="BottomNavigationView.Active" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/white</item>
+
+    </style>
+
+</resources>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="model"
+            type="com.kapilguru.student.courseDetails.model.Training" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:imageResource="@{model.bg}"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    <ImageView
+        android:id="@+id/icon_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:imageResource="@{model.subImage}"
+        android:layout_margin="@dimen/dimen_16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{model.heading}"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/black"
+        android:layout_margin="@dimen/dimen_16dp"
+        app:layout_constraintTop_toBottomOf="@id/icon_"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Heading"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/subheading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{model.subHeading}"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/black"
+        android:layout_marginHorizontal="@dimen/dimen_16dp"
+        app:layout_constraintTop_toBottomOf="@id/heading"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="@string/training_features_live_classes"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

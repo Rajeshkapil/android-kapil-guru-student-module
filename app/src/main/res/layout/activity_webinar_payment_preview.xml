@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.kapilguru.student.payment.model.InitiateTransactionRequest" />
+
+        <variable
+            name="startDate"
+            type="String" />
+
+        <variable
+            name="endDate"
+            type="String" />
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_bg"
+        android:orientation="vertical"
+        tools:context=".payment.WebinarPaymentPreviewActivity">
+
+        <include
+            android:id="@+id/actionbar"
+            layout="@layout/custom_action_bar_layout" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/actv_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/review_your_oder"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/actv_checkout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{@string/checkout_for_order(model.orderId)}"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:paddingHorizontal="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/actv_review"
+                tools:text="sdbkabvhsvdsvdchsvdhcbVDSHVBsduovbhsdvbcVDUOCvdhVBDOHUCBohdcvHVCOHvcho"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cv_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="14dp"
+                android:background="@color/white"
+                app:cardCornerRadius="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/actv_checkout">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/gl_vertical_40"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.4" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/gl_vertical_50"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.5" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/name"
+                        app:layout_constraintEnd_toEndOf="@+id/gl_vertical_40"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_name_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/gl_vertical_40"
+                        app:layout_constraintTop_toTopOf="@id/actv_name"
+                        tools:text="Spider Man" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_user_code"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/user_code"
+                        app:layout_constraintEnd_toEndOf="@+id/gl_vertical_40"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/actv_name_value" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_user_code_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{model.userCode}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/gl_vertical_40"
+                        app:layout_constraintTop_toTopOf="@id/actv_user_code"
+                        tools:text="TA11422" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_product_type"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/product_type"
+                        app:layout_constraintEnd_toEndOf="@+id/gl_vertical_40"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/actv_user_code_value" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_product_type_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{model.productType}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/gl_vertical_40"
+                        app:layout_constraintTop_toTopOf="@id/actv_product_type"
+                        tools:text="PACKAGE" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_amount"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/amount"
+                        app:layout_constraintEnd_toEndOf="@+id/gl_vertical_40"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/actv_product_type_value" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_amount_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/orange"
+                        android:textStyle="bold"
+                        app:doubleToCount="@{model.amount}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/gl_vertical_40"
+                        app:layout_constraintTop_toTopOf="@id/actv_amount"
+                        tools:text="5,999" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_product_code"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/product_code"
+                        app:layout_constraintEnd_toEndOf="@+id/gl_vertical_40"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/actv_amount_value" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_product_code_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@{model.productCode}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/gl_vertical_40"
+                        app:layout_constraintTop_toTopOf="@id/actv_product_code"
+                        tools:text="WB14747" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_start_date"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/start_date_"
+                        app:layout_constraintEnd_toEndOf="@+id/gl_vertical_40"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/actv_product_code_value" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_start_date_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:dateToString="@{startDate}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/gl_vertical_40"
+                        app:layout_constraintTop_toTopOf="@id/actv_start_date"
+                        tools:text="Apr 15, 2021" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_end_date"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/end_date"
+                        app:layout_constraintEnd_toEndOf="@+id/gl_vertical_40"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/actv_start_date_value" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_end_date_value"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:dateToString="@{endDate}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/gl_vertical_40"
+                        app:layout_constraintTop_toTopOf="@id/actv_end_date"
+                        tools:text="Apr 21, 2021" />
+
+                    <View
+                        android:id="@+id/view_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/grey"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/actv_end_date_value" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/total"
+                        app:layout_constraintEnd_toEndOf="@+id/gl_vertical_40"
+                        app:layout_constraintHorizontal_bias="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/view_1" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_total_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:doubleToCount="@{model.amount}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/gl_vertical_50"
+                        app:layout_constraintTop_toTopOf="@id/actv_total"
+                        tools:text="5,999" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_platform_charges"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/platform_charges"
+                        app:layout_constraintEnd_toEndOf="@+id/gl_vertical_40"
+                        app:layout_constraintHorizontal_bias="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/actv_total_value" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_platform_charges_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:doubleToCount="@{model.mobilePlatformCharges}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/gl_vertical_50"
+                        app:layout_constraintTop_toTopOf="@id/actv_platform_charges"
+                        tools:text="50" />
+
+                    <View
+                        android:id="@+id/view_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/grey"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/actv_platform_charges_value" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_grand_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/grand_total"
+                        app:layout_constraintEnd_toEndOf="@+id/gl_vertical_40"
+                        app:layout_constraintHorizontal_bias="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/view_2" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_grand_total_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/orange"
+                        android:textStyle="bold"
+                        app:doubleToCount="@{model.grandTotal}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/gl_vertical_50"
+                        app:layout_constraintTop_toTopOf="@id/actv_grand_total"
+                        tools:text="7078" />
+
+                    <View
+                        android:id="@+id/view_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/grey"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/actv_grand_total_value" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_coupon_code"
+                        style="@style/MyAppEditTextViewStyle_new"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginVertical="8dp"
+                        android:padding="2dp"
+                        android:background="@drawable/rectangle_stroke_grey"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/view_3"
+                        android:visibility="invisible">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tiet_coupon_code"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@null"
+                            android:hint="@string/admin_coupon"
+                            android:inputType="text"
+                            android:textSize="15sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_pay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="8dp"
+                        android:layout_marginEnd="20dp"
+                        android:backgroundTint="@color/yellow"
+                        android:text="@string/pay"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/til_coupon_code" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</layout>

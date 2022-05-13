@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!--    <item android:id="@+id/reports" android:title="@string/reports"/>-->
+    <item android:id="@+id/profile" android:title="@string/title_profile"/>
+    <item android:id="@+id/certificate" android:title="@string/certificate"/>
+    <item android:id="@+id/completion_request" android:title="@string/completion_request"/>
+    <item android:id="@+id/refer_and_earn" android:title="@string/refer_and_earn"/>
+    <item android:id="@+id/how_to_use" android:title="@string/title_howtouse"/>
+    <item android:id="@+id/get_in_touch" android:title="@string/get_in_touch"/>
+    <item android:id="@+id/log_out" android:title="@string/logout"/>
+</menu>

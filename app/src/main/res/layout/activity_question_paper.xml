@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.kapilguru.student.exam.questionPaper.viewModel.QuestionPaperViewModel" />
+
+        <variable
+            name="questionPaperInfo"
+            type="com.kapilguru.student.myClassRoomDetails.exam.model.QuestionPaperListItemResData" />
+        <variable
+            name="currentQuestionAndOptions"
+            type="com.kapilguru.student.exam.model.QuestionsAndOptions" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_bg">
+
+        <include
+            android:id="@+id/custom_action_bar"
+            layout="@layout/custom_action_bar_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_question_paper_info"
+            style="@style/AppCardViewStyle_latest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/custom_action_bar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                tools:context=".exam.questionPaper.QuestionPaperActivity">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_vertical_33"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.3" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_exam_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/exam_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_exam_title_value"
+                    style="@style/orange_heading_text_style"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{questionPaperInfo.questionPaperTitle}"
+                    app:layout_constraintEnd_toStartOf="@+id/ll_total_questions"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_exam_title"
+                    tools:text="Android Basics" />
+
+                <LinearLayout
+                    android:id="@+id/ll_total_questions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/stroke_bg_corner"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_total_questions"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/total_questions"
+                        android:textColor="@color/black" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_total_questions_value"
+                        intToCount="@{questionPaperInfo.totalQuestions}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        tools:text="10" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_total_marks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/stroke_bg_corner"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_total_questions">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_total_marks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/total_marks"
+                        android:textColor="@color/black" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_total_marks_value"
+                        intToCount="@{questionPaperInfo.totalMarks}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        tools:text="20" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/stroke_bg_corner"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ll_total_marks">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_duration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/duration"
+                        android:textColor="@color/black" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_duration_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        tools:text="1:00 hr" />
+
+                </LinearLayout>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_course_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/course_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_exam_title_value" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_course_title_value"
+                    style="@style/orange_heading_text_style"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{questionPaperInfo.course}"
+                    android:textColor="@color/purple"
+                    app:layout_constraintEnd_toStartOf="@+id/ll_total_marks"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_course_title"
+                    tools:text="Android" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_trainer_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/trainer_colon"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_course_title_value" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_trainer_name_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{questionPaperInfo.trainerName}"
+                    android:textColor="@color/blue_3"
+                    app:layout_constraintStart_toEndOf="@id/actv_trainer_name"
+                    app:layout_constraintTop_toTopOf="@id/actv_trainer_name" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_exam_date"
+                    style="@style/MyclassRoomOverViewTextStyle"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:text="@string/exam_date"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_trainer_name_value" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_exam_date_value"
+                    style="@style/MyclassRoomOverViewValuesTextStyle"
+                    app:dateToString="@{questionPaperInfo.startTime}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_exam_date"
+                    tools:text="5 : 30 pm" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_exam_time"
+                    style="@style/MyclassRoomOverViewTextStyle"
+                    android:text="@string/exam_time"
+                    app:layout_constraintStart_toStartOf="@id/gl_vertical_33"
+                    app:layout_constraintTop_toTopOf="@id/actv_exam_date" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_exam_time_value"
+                    style="@style/MyclassRoomOverViewValuesTextStyle"
+                    app:layout_constraintStart_toStartOf="@id/gl_vertical_33"
+                    app:layout_constraintTop_toBottomOf="@id/actv_exam_time"
+                    app:timeToString="@{questionPaperInfo.startTime}"
+                    tools:text="1:hour" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_question"
+            style="@style/AppCardViewStyle_latest"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/ll_action_buttons"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cv_question_paper_info">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    tools:context=".exam.questionPaper.QuestionPaperActivity">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_question_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Q1/25" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_marks_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:intToCount="@{viewModel.currentQuestionAndOption.marks}"
+                        android:layout_marginHorizontal="5dp"
+                        android:fontFamily="@font/rubik_medium"
+                        android:textColor="@color/orange_2"
+                        tools:text="2"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/actv_marks"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_marks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:markOrMarks="@{viewModel.currentQuestionAndOption.marks}"
+                        android:fontFamily="@font/rubik_medium"
+                        android:textColor="@color/purple"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="Marks"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/actv_question"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:textColor="@color/red"
+                        app:base64ToHtml="@{viewModel.currentQuestionAndOption.question}"
+                        app:fontFamily="@font/rubik_bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/actv_question_no"
+                        tools:text="Sun raises in ?" />
+
+                    <RadioGroup
+                        android:id="@+id/rg_options"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/actv_question">
+
+                        <RadioButton
+                            android:id="@+id/rb_option_a"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/option_a"
+                            android:textColor="@color/purple" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_option_a_value"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/rectangle_stroke_grey"
+                            android:gravity="center_vertical"
+                            android:padding="4dp"
+                            app:base64ToHtml="@{viewModel.currentQuestionAndOption.opt1}"
+                            tools:text="East" />
+
+                        <RadioButton
+                            android:id="@+id/rb_option_b"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/option_b"
+                            android:textColor="@color/purple" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_option_b_value"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/rectangle_stroke_grey"
+                            android:gravity="center_vertical"
+                            android:padding="4dp"
+                            app:base64ToHtml="@{viewModel.currentQuestionAndOption.opt2}"
+                            tools:text="West" />
+
+                        <RadioButton
+                            android:id="@+id/rb_option_c"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/option_c"
+                            android:textColor="@color/purple"
+                            />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_option_c_value"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/rectangle_stroke_grey"
+                            android:gravity="center_vertical"
+                            android:padding="4dp"
+                            app:base64ToHtml="@{viewModel.currentQuestionAndOption.opt3}"
+                            tools:text="West" />
+
+                        <RadioButton
+                            android:id="@+id/rb_option_d"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/option_d"
+                            android:textColor="@color/purple" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/actv_option_d_value"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="8dp"
+                            android:background="@drawable/rectangle_stroke_grey"
+                            android:gravity="center_vertical"
+                            android:padding="4dp"
+                            app:base64ToHtml="@{viewModel.currentQuestionAndOption.opt4}"
+                            tools:text="West" />
+
+                    </RadioGroup>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:id="@+id/ll_action_buttons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <Button
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:backgroundTint="@color/white"
+                android:enabled="false"
+                android:text="@string/back"
+                android:textColor="@color/grey" />
+
+            <Button
+                android:id="@+id/btn_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="8dp"
+                android:backgroundTint="@color/blue_3"
+                android:text="@string/next"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="8dp"
+                android:backgroundTint="@color/green_2"
+                android:text="@string/submit"
+                android:textColor="@color/white"
+                android:visibility="gone" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
